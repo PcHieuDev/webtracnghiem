@@ -14,40 +14,33 @@ class QuizzesTableSeeder extends Seeder
      */
     public function run()
     {
-        
-
         \DB::table('quizzes')->delete();
-        
-        \DB::table('quizzes')->insert(array (
-            0 => 
-            array (
+
+        \DB::table('quizzes')->insert([
+            [
                 'id' => 1,
-            'quiz_name' => 'quiz 1 (Computer science)',
+                'quiz_name' => 'Bài kiểm tra 1 (Khoa học máy tính)',
                 'per_question_mark' => 5,
                 'classroom_id' => 3,
-                'created_at' => '2021-12-29 20:07:16',
-                'updated_at' => '2021-12-29 20:09:19',
-            ),
-            1 => 
-            array (
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
                 'id' => 2,
-            'quiz_name' => 'quiz 1 (Phasic)',
+                'quiz_name' => 'Bài kiểm tra 1 (Sinh Học)',
                 'per_question_mark' => 10,
                 'classroom_id' => 2,
-                'created_at' => '2021-12-29 20:07:32',
-                'updated_at' => '2021-12-29 20:09:05',
-            ),
-            2 => 
-            array (
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
                 'id' => 3,
-            'quiz_name' => 'quiz 1 (English)',
+                'quiz_name' => 'Bài kiểm tra 1 (Tiếng Anh)',
                 'per_question_mark' => 10,
                 'classroom_id' => 1,
-                'created_at' => '2021-12-29 20:07:38',
-                'updated_at' => '2021-12-29 20:08:52',
-            ),
-        ));
-        
-        
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+        ]);
     }
 }

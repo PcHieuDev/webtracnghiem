@@ -16,7 +16,7 @@ Route::middleware(['auth', 'isTeacher'])->group(function () {
     Route::get('/dashboard', App\Http\Livewire\Dashboard::class)->name('dashboard');
     Route::view('/admin/profile', 'admin.profile');
     Route::post('/admin/profile', [AdminController::class, 'profileUpdate']);
-    //Route Hooks - Do not delete//
+
     Route::get('answers-list', App\Http\Livewire\AnswersList::class)->middleware('auth');
     Route::get('list-classroom/{student_id}', App\Http\Livewire\Answers\ClassroomList::class)->middleware('auth');
     Route::get('quizDetail/{quiz_id}/{student_id}', App\Http\Livewire\Answers\QuizDetail::class)->middleware('auth');
@@ -25,6 +25,8 @@ Route::middleware(['auth', 'isTeacher'])->group(function () {
     Route::get('questions', App\Http\Livewire\Questions::class)->middleware('auth');
     Route::get('classrooms', App\Http\Livewire\Classrooms::class)->middleware('auth');
     Route::get('students', App\Http\Livewire\StudentList::class)->middleware('auth');
+
+
 
     Route::get('/admin/site_settings', App\Http\Livewire\SiteSettings::class)->middleware('auth');
     Route::get('/admin/users', App\Http\Livewire\Users::class)->middleware('auth');

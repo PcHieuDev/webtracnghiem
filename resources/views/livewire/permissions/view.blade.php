@@ -13,8 +13,6 @@
                 <label for="name">Name:-</label>
                 <div>{{$name}}</div>
             </div>
-
-
                 </form>
             </div>
             <div class="modal-footer">

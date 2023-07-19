@@ -144,7 +144,7 @@ class Questions extends Component
 
         $this->resetInput();
         $this->emit('closeModal');
-        $this->alert('success', 'Question Successfully created.');
+/*        $this->alert('success', 'Question Successfully created.');*/
     }
 
     public function edit($id)
@@ -223,32 +223,33 @@ class Questions extends Component
             }
 
             $this->resetInput();
-            $this->alert('success', 'Question Successfully updated.');
+/*            $this->alert('success', 'Question Successfully updated.');*/
         }
     }
 
     public function triggerConfirm($id)
     {
         $this->deleteId = $id;
-        $this->confirm('Do you want to delete?', [
+       /* $this->confirm('Do you want to delete?', [
             'toast' => false,
             'position' => 'center',
             'showConfirmButton' => true,
             'cancelButtonText' => 'Cancel',
             'onConfirmed' => 'confirmed',
             'onCancelled' => 'cancelled',
-        ]);
+        ]);*/
+        $this->destroy();
     }
 
     public function confirmed()
     {
         $this->destroy();
-        $this->alert('success', 'Deleted successfully.');
+/*        $this->alert('success', 'Deleted successfully.');*/
     }
 
     public function cancelled()
     {
-        $this->alert('info', 'Understood');
+/*        $this->alert('info', 'Understood');*/
     }
 
     public function destroy()

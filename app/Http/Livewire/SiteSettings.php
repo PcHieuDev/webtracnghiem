@@ -62,7 +62,7 @@ class SiteSettings extends Component
             'website_favicon' => $website_favicon,
         ]);
 
-        $this->alert('success', 'SiteSetting Successfully updated.');
+/*        $this->alert('success', 'SiteSetting Successfully updated.');*/
     }
 
 }

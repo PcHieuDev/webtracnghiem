@@ -1,7 +1,6 @@
 <?php
 
 namespace Database\Seeders;
-
 use Illuminate\Database\Seeder;
 
 class QuestionsTableSeeder extends Seeder
@@ -14,65 +13,57 @@ class QuestionsTableSeeder extends Seeder
      */
     public function run()
     {
-        
-
         \DB::table('questions')->delete();
-        
-        \DB::table('questions')->insert(array (
-            0 => 
-            array (
+
+        \DB::table('questions')->insert([
+            [
                 'id' => 1,
-                'question' => 'Consider the following statements:
+                'question' => 'Xem xét các tuyên bố sau:
 
-1. The DNS system used by Internet permits computer to identify other computers.
+1. Hệ thống DNS được sử dụng bởi Internet cho phép máy tính xác định máy tính khác.
 
-2. In order to connect to the internet, each computer requires a unique numerical code, which is known as IP address.
+2. Để kết nối với Internet, mỗi máy tính đều cần có một mã số duy nhất, được gọi là địa chỉ IP.
 
-Choose the correct answer from the codes given below:',
-                'answer' => ' Both',
+Chọn câu trả lời đúng từ các mã dưới đây:',
+                'answer' => 'Cả hai',
                 'long_written' => 0,
                 'quiz_id' => 1,
-                'created_at' => '2021-12-29 20:11:36',
-                'updated_at' => '2021-12-30 08:02:20',
-            ),
-            1 => 
-            array (
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
                 'id' => 2,
-                'question' => ' A group of ………………... is commonly called as one byte.',
-                'answer' => 'Eight bits',
+                'question' => 'Một nhóm gồm ………………... thường được gọi là một byte.',
+                'answer' => 'Tám bit',
                 'long_written' => 0,
                 'quiz_id' => 1,
-                'created_at' => '2021-12-29 20:12:38',
-                'updated_at' => '2021-12-30 08:02:09',
-            ),
-            2 => 
-            array (
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
                 'id' => 3,
-                'question' => 'Consider the following statements:
+                'question' => 'Xem xét các tuyên bố sau:
 
-1. Aksh Broadband, an IT company, has launched the Gramdoot program in Jaipur, Rajasthan.
+1. Công ty Cổ phần Công nghệ thông tin Aksh, một công ty CNTT, đã ra mắt chương trình Gramdoot tại Jaipur, Rajasthan.
 
-2. Based on fiber optic cable, Aksh Broadband covers about 3000 km area.
+2. Dựa trên cáp quang, Công ty Cổ phần Công nghệ thông tin Aksh có phạm vi khoảng 3000 km.
 
-Choose the correct answer from the codes given below:',
-                'answer' => 'Both',
+Chọn câu trả lời đúng từ các mã dưới đây:',
+                'answer' => 'Cả hai',
                 'long_written' => 0,
                 'quiz_id' => 1,
-                'created_at' => '2021-12-29 20:13:36',
-                'updated_at' => '2021-12-30 08:02:03',
-            ),
-            3 => 
-            array (
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
                 'id' => 4,
-                'question' => 'Write about computer',
+                'question' => 'Viết về máy tính',
                 'answer' => NULL,
                 'long_written' => 1,
                 'quiz_id' => 1,
-                'created_at' => '2021-12-30 13:48:04',
-                'updated_at' => '2021-12-30 13:48:04',
-            ),
-        ));
-        
-        
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+        ]);
     }
 }

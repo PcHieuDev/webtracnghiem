@@ -4,12 +4,12 @@
         <div>
             <div class="d-flex justify-content-between align-items-center">
                 <div class="mb-2 mb-lg-0">
-                    <h3 class="mb-0 fw-bold text-white">{{__('Questions Listing')}}</h3>
+                    <h3 class="mb-0 fw-bold text-white">{{__('Danh Sách Câu Hỏi')}}</h3>
                 </div>
                 <div>
                 @can('question-create')
                     <button type="button"  data-bs-toggle="modal" wire:click.prevent="resetInput()"  data-bs-target="#questionCreateModal"
-                        class="btn btn-white"><i class="fa fa-plus"></i> {{__('Create New Questions')}}</button>
+                        class="btn btn-white"><i class="fa fa-plus"></i> {{__('Tạo Câu Hỏi Mới')}}</button>
                 @endcan
                 </div>
             </div>
@@ -51,7 +51,7 @@
                                 <div class="input-group mb-3">
                                     <span class="input-group-text border-right-0 border"><i class="fa fa-search"></i></span>
                                     <input wire:model='keyWord' type="text" class="form-control border-left-0 border" name="search" id="search"
-                                    placeholder="{{__('Search Questions')}}">
+                                    placeholder="{{__('Search')}}">
                                 </div>
                             </div>
                         </div>
@@ -66,10 +66,10 @@
 
                             @endcan
 								<td>#</td>
-								<th>{{__('Question')}}</th>
-								<th>{{__('Quiz Name')}}</th>
-								<th>{{__('Image')}}</th>
-								<td>{{__('ACTIONS')}}</td>
+								<th>{{__('Câu Hỏi')}}</th>
+								<th>{{__('Tên Bài Kiểm Tra')}}</th>
+								{{--<th>{{__('Image')}}</th>--}}
+								<td>{{__('Hành Động')}}</td>
 							</tr>
 						</thead>
 						<tbody>
@@ -83,11 +83,11 @@
 								<td>{{ $loop->iteration }}</td>
 								<td>{{ $row->question }}</td>
 								<td>{{ $row->quiz->quiz_name }}</td>
-                                <td>
+                                {{--<td>
                                     @if ($row->image)
                                     <img src="{{ Storage::url($row->image) }}" alt="" height="200px" width="300px" alt="image">
                                     @endif
-                                </td>
+                                </td>--}}
 								<td width="200">
 
                                         {{-- <button type="button" data-bs-toggle="modal" data-bs-target="#questionShowModal" class="btn btn-warning btn-sm"wire:click="show({{ $row->id }})"><i
@@ -95,7 +95,7 @@
 
                                         @can('question-edit')
 
-                                        <button type="button" data-bs-toggle="modal" data-bs-target="#questionUpdateModal" class="btn btn-success btn-sm"wire:click="edit({{ $row->id }})">Edit   <i
+                                        <button type="button" data-bs-toggle="modal" data-bs-target="#questionUpdateModal" class="btn btn-success btn-sm"wire:click="edit({{ $row->id }})">Sửa   <i
                                             class="fa fa-edit"></i></button>
 
                                         @endcan
@@ -103,7 +103,7 @@
                                         @can('question-delete')
 
                                             <button class="btn btn-danger btn-sm"
-                                            wire:click="triggerConfirm({{ $row->id }})">Delete   <i
+                                            wire:click="triggerConfirm({{ $row->id }})">Xóa   <i
                                                 class="fa fa-trash"></i> </button>
                                         @endcan
 

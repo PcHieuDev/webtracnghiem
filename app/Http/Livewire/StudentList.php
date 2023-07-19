@@ -40,23 +40,34 @@ class StudentList extends Component
     public function triggerConfirm($id)
     {
         $this->deleteId = $id;
-        $this->confirm('Do you want to delete?', [
+       /* $this->confirm('Do you want to delete?', [
             'toast' => false,
             'position' => 'center',
             'showConfirmButton' => true,
             'cancelButtonText' => 'Cancel',
             'onConfirmed' => 'confirmed',
             'onCancelled' => 'cancelled',
-        ]);
+        ]);*/
+        $this->destroy();
     }
 
     public function edit($email){
         $this->email = $email;
     }
 
+    /*public function sendMail(){
+        $details = [
+            'title' => 'Mail from Quizy',
+            'body' => $this->message
+        ];
+
+        Mail::to($this->email)->send(new studentMail($details));
+        $this->message = null;
+        $this->email = null;
+    }*/
     public function sendMail(){
         $this->authorize('student-mail');
-        // send Mail to student
+        // gửi mail cho học sinh
 
         $details = [
             'message' => $this->message,
@@ -65,18 +76,16 @@ class StudentList extends Component
         // check if mail is sent or not
         Mail::to($this->email)->send(new studentMail($details));
         $this->message = null;
-        $this->alert('success', 'Mail sent successfully');
     }
 
     public function confirmed()
     {
         $this->destroy();
-        $this->alert('success', 'Deleted successfully.');
     }
 
     public function cancelled()
     {
-        $this->alert('info', 'Understood');
+        $this->deleteId = null;
     }
 
     public function destroy()

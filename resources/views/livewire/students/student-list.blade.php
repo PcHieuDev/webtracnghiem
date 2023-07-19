@@ -4,7 +4,7 @@
         <div>
             <div class="d-flex justify-content-between align-items-center">
                 <div class="mb-2 mb-lg-0">
-                    <h3 class="mb-0 fw-bold text-white">Students Listing</h3>
+                    <h3 class="mb-0 fw-bold text-white">Danh Sách Học Sinh</h3>
                 </div>
             </div>
         </div>
@@ -18,15 +18,15 @@
                     <div class="table-responsive">
                         <div class="mb-4">
                             <input wire:model='keyWord' type="text" class="form-control" name="search" id="search"
-                                placeholder="Search Students">
+                                placeholder="Tìm Học Sinh">
                         </div>
                         <table class="table table-bordered table-sm">
                             <thead class="thead">
                                 <tr>
                                     <td>#</td>
-                                    <th>Name</th>
+                                    <th>Tên</th>
                                     <th>Email</th>
-                                    <td>ACTIONS</td>
+                                    <td>Hành Động</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -48,7 +48,7 @@
                                         @can('student-delete')
 
                                             <button class="btn btn-danger btn-sm"
-                                                wire:click="triggerConfirm({{ $row->id }})">Delete   <i
+                                                wire:click="triggerConfirm({{ $row->id }})">Xóa   <i
                                                     class="fa fa-trash"></i>
                                             </button>
                                         @endcan

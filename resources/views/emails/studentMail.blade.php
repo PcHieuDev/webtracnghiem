@@ -1,12 +1,12 @@
 @component('mail::message')
-# Welcome to {{ config('app.name') }}
+# CHào mừng đến với {{ config('app.name') }}
 
 - {{ $details['message'] }}
 
 @component('mail::button', ['url' => ''])
-Visit our website
+Ghé thăm trang web của chúng tôi
 @endcomponent
 
-Thanks,<br>
+Cảm ơn,<br>
 {{ config('app.name') }}
 @endcomponent

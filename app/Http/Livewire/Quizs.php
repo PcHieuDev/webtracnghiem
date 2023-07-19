@@ -77,7 +77,7 @@ class Quizs extends Component
 
         $this->resetInput();
 		$this->emit('closeModal');
-		$this->alert('success', 'Quiz Successfully created.');
+/*		$this->alert('success', 'Quiz Successfully created.');*/
     }
 
     public function edit($id)
@@ -120,32 +120,26 @@ class Quizs extends Component
             ]);
 
             $this->resetInput();
-			$this->alert('success', 'Quiz Successfully updated.');
+
         }
     }
 
      public function triggerConfirm($id)
     {
         $this->deleteId = $id;
-        $this->confirm('Do you want to delete?', [
-            'toast' => false,
-            'position' => 'center',
-            'showConfirmButton' => true,
-            'cancelButtonText' => 'Cancel',
-            'onConfirmed' => 'confirmed',
-            'onCancelled' => 'cancelled',
-        ]);
+
+        $this->destroy();
     }
 
     public function confirmed()
     {
         $this->destroy();
-        $this->alert( 'success', 'Deleted successfully.');
+
     }
 
     public function cancelled()
     {
-        $this->alert('info', 'Understood');
+        $this->deleteId = null;
     }
 
     public function destroy()
@@ -160,14 +154,15 @@ class Quizs extends Component
 
     public function bulkDeleteTriggerConfirm()
     {
-        $this->confirm('Do you want to delete?', [
+       /* $this->confirm('Do you want to delete?', [
             'toast' => false,
             'position' => 'center',
             'showConfirmButton' => true,
             'cancelButtonText' => 'Cancel',
             'onConfirmed' => 'bulkDelete',
             'onCancelled' => 'cancelled',
-        ]);
+        ]);*/
+        $this->bulkDelete();
     }
 
     public function bulkDelete()
@@ -176,7 +171,7 @@ class Quizs extends Component
 
         Quiz::whereKey($this->checked)->delete();
         $this->checked = [];
-        $this->alert( 'success', 'Deleted successfully.');
+
     }
 
     public function updatedCheckedAll($value)

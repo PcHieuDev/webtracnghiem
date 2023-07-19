@@ -20,7 +20,7 @@ class QuizList extends Component
 
     public function render()
     {
-        return view('livewire.quiz-list',[
+        return view('livewire.quiz-list', [
             'quiz' => Quiz::findOrFail($this->quiz_id)
         ])->extends('layouts.frontend');
     }
@@ -29,7 +29,7 @@ class QuizList extends Component
     {
         $quiz = Quiz::find(request()->quiz_id);
         if (request()->question) {
-            for ($i=0; $i < sizeof(request()->question) ; $i++) {
+            for ($i = 0; $i < sizeof(request()->question); $i++) {
                 if (request()->short_question_answer[$i][0] == request()->short_question_correct[$i]) {
                     $mark = $quiz->per_question_mark;
                 } else {
@@ -39,7 +39,7 @@ class QuizList extends Component
                     'user_id' => auth()->user()->id,
                     'quiz_id' => request()->quiz_id,
                     'question' => request()->question[$i],
-                    'short_question_answer' =>  request()->short_question_answer[$i][0],
+                    'short_question_answer' => request()->short_question_answer[$i][0],
                     'short_question_correct' => request()->short_question_correct[$i],
                     'mark' => $mark,
                     'missing_word' => request()->missing_word[$i],
@@ -47,7 +47,7 @@ class QuizList extends Component
             }
         }
         if (request()->long_question) {
-            for ($i=0; $i < sizeof(request()->long_question) ; $i++) {
+            for ($i = 0; $i < sizeof(request()->long_question); $i++) {
                 Answer::create([
                     'user_id' => auth()->user()->id,
                     'quiz_id' => request()->quiz_id,
@@ -57,10 +57,6 @@ class QuizList extends Component
                 ]);
             }
         }
-
-
         return redirect()->back();
-
-
     }
 }

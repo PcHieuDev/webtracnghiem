@@ -5,8 +5,9 @@ namespace Database\Seeders;
 use Hash;
 use App\Models\User;
 use Spatie\Permission\Models\Role;
-use Spatie\Permission\Models\Permission;
 use Illuminate\Database\Seeder;
+use Faker\Factory as FakerFactory;
+use Illuminate\Support\Str;
 
 class UserTableSeeder extends Seeder
 {
@@ -15,48 +16,49 @@ class UserTableSeeder extends Seeder
      *
      * @return void
      */
+
     public function run()
     {
-        $user = User::create([
-            'name' => 'Mehedi Hasan Sagor',
-            'email' => 'developer@sagor.com',
-            'password' => Hash::make('12345678')
-        ]);
+        $faker = FakerFactory::create('vi_VN'); // Sử dụng ngôn ngữ và vùng của Việt Nam
 
-        $role = Role::find(1);
+        $role1 = Role::find(1);
+        $role2 = Role::find(2);
+        $role3 = Role::find(3);
 
-        $permissions = Permission::pluck('id', 'id')->all();
+        for ($i = 1; $i <= 10; $i++) {
+            $name = $faker->name;
+            $nameWithoutAccents = Str::ascii($name); // Chuyển tên thành viết không dấu
+            $nameWithoutSpaces = str_replace(' ', '', $nameWithoutAccents); // Loại bỏ khoảng trống
+            $user = User::create([
+                'name' => $name,
+                'email' => $nameWithoutSpaces . '_195122' . str_pad($i, 4, '0', STR_PAD_LEFT) . '@dau.edu.vn',
+                'password' => Hash::make('12345678')
+            ]);
+            $user->assignRole($role1);
+        }
 
-        $role->syncPermissions($permissions);
+        for ($i = 1; $i <= 10; $i++) {
+            $name = $faker->name;
+            $nameWithoutAccents = Str::ascii($name);
+            $nameWithoutSpaces = str_replace(' ', '', $nameWithoutAccents);
+            $user = User::create([
+                'name' => $name,
+                'email' => $nameWithoutSpaces . '_195122' . str_pad($i, 4, '0', STR_PAD_LEFT) . '@dau.edu.vn',
+                'password' => Hash::make('12345678')
+            ]);
+            $user->assignRole($role2);
+        }
 
-        $user->assignRole([$role->id]);
-
-        $user = User::create([
-            'name' => 'teacher',
-            'email' => 'teacher@sagor.com',
-            'password' => Hash::make('12345678')
-        ]);
-
-        $role = Role::find(2);
-
-        $permissions = Permission::pluck('id', 'id')->all();
-
-        $role->syncPermissions($permissions);
-
-        $user->assignRole([$role->id]);
-
-        $user = User::create([
-            'name' => 'developer',
-            'email' => 'student@sagor.com',
-            'password' => Hash::make('12345678')
-        ]);
-
-        $role = Role::find(3);
-
-        $permissions = Permission::pluck('id', 'id')->all();
-
-        $role->syncPermissions($permissions);
-
-        $user->assignRole([$role->id]);
+        for ($i = 1; $i <= 10; $i++) {
+            $name = $faker->name;
+            $nameWithoutAccents = Str::ascii($name);
+            $nameWithoutSpaces = str_replace(' ', '', $nameWithoutAccents);
+            $user = User::create([
+                'name' => $name,
+                'email' => $nameWithoutSpaces . '_195122' . str_pad($i, 4, '0', STR_PAD_LEFT) . '@dau.edu.vn',
+                'password' => Hash::make('12345678')
+            ]);
+            $user->assignRole($role3);
+        }
     }
 }

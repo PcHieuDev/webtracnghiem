@@ -8,7 +8,7 @@
             <div class="card-body p-6">
                 <div class="mb-4">
                     <a href="/"><img src="{{ Storage::url(websiteLog()) }}" class="mb-2" style="    height: 200px;" alt=""></a>
-                    <p class="mb-6">Please enter your user information.</p>
+                    <p style="text-align: center" class="mb-6">Hãy nhập thông tin của bạn.</p>
 
                 </div>
                 @include('layouts.parts.validation-message')
@@ -17,8 +17,8 @@
                     @csrf
                     <!-- name -->
                     <div class="mb-3">
-                        <label for="name" class="form-label">Name</label>
-                        <input type="text" id="name" class="form-control" name="name" placeholder="Name" required="">
+                        <label for="name" class="form-label">Họ và Tên</label>
+                        <input type="text" id="name" class="form-control" name="name" placeholder="Tên" required="">
                         @error('name')
                         <span class="error text-danger" role="alert">
                             <strong>{{ $message }}</strong>
@@ -27,7 +27,7 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="role" class="form-label">Role</label>
+                        <label for="role" class="form-label">Bạn là</label>
 
                         <select name="role" id="role" class="form-select">
                             @foreach (Spatie\Permission\Models\Role::where('name', '!=', 'admin')->get() as $item)
@@ -46,7 +46,7 @@
                     <div class="mb-3">
                         <label for="email" class="form-label">Email</label>
                         <input type="email" id="email" class="form-control" name="email"
-                            placeholder="Email address here" required="">
+                            placeholder="Email" required="">
 
                         @error('email')
                         <span class="error text-danger" role="alert">
@@ -56,16 +56,15 @@
                     </div>
                     <!-- Password -->
                     <div class="mb-3">
-                        <label for="password" class="form-label">Password</label>
+                        <label for="password" class="form-label">Mật khẩu</label>
                         <input type="password" id="password" class="form-control" name="password"
-                            placeholder="**************" required="">
+                            placeholder="**********" required="">
                     </div>
                     <!-- Password -->
                     <div class="mb-3">
-                        <label for="confirm-password" class="form-label">Confirm
-                            Password</label>
+                        <label for="confirm-password" class="form-label">Xác nhận lại mật khẩu</label>
                         <input type="password" id="confirm-password" class="form-control" name="password_confirmation"
-                            placeholder="**************" required="">
+                            placeholder="**********" required="">
                         @error('password')
                         <span class="error text-danger" role="alert">
                             <strong>{{ $message }}</strong>
@@ -76,19 +75,18 @@
                         <!-- Button -->
                         <div class="d-grid">
                             <button type="submit" class="btn btn-primary">
-                                Create Free Account
+                                Tạo tài khoản
                             </button>
                         </div>
 
                         <div class="d-md-flex justify-content-between mt-4">
                             <div class="mb-2 mb-md-0">
-                                <a href="{{ asset('login') }}" class="">Already
-                                    member? Login </a>
+                                <a style="text-decoration: none" href="{{ asset('login') }}" class="">Có tài khoản ? Đăng Nhập </a>
                             </div>
                             @if (Route::has('password.request'))
                             <div>
-                                <a href="{{ route('password.request') }}" class="text-inherit">
-                                    {{ __('Forgot Your Password?') }}
+                                <a style="text-decoration: none" href="{{ route('password.request') }}" class="text-inherit">
+                                    {{ __('Quên mật khẩu?') }}
                                 </a>
 
                             </div>

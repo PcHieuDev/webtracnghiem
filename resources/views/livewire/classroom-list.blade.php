@@ -1,12 +1,12 @@
 <div>
     {{-- classroom list  --}}
     <div class="row">
-        <h4>Classroom List:</h4>
+        <h4 style="text-align: center">Danh sách lớp học:</h4>
         @foreach ($classrooms as $item)
         <div class="col-md-4">
             <div class="card text-left mt-4 shadow">
                 <a href="{{ asset('classroom/'.$item->id) }}" class="text-decoration-none">
-                    <img class="card-img-top" src="{{ asset('classroom.jpg') }}" alt="">
+                    <img class="card-img-top" src="{{ asset('classroom2.jpg') }}" alt="">
                 </a>
                 <div class="card-body">
                     <a href="{{ asset('classroom/'.$item->id) }}" class="text-decoration-none">

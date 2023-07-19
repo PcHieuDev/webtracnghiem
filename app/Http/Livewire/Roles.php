@@ -67,7 +67,7 @@ class Roles extends Component
 
         $this->resetInput();
         $this->emit('closeModal');
-        $this->alert('success', 'Role Successfully created.');
+/*        $this->alert('success', 'Role Successfully created.');*/
     }
 
     public function edit($id)
@@ -113,7 +113,7 @@ class Roles extends Component
             $record->syncPermissions($this->selected_permission);
 
             $this->resetInput();
-            $this->alert('success', 'Role Successfully updated.');
+/*            $this->alert('success', 'Role Successfully updated.');*/
         }
     }
 
@@ -133,12 +133,12 @@ class Roles extends Component
     public function confirmed()
     {
         $this->destroy();
-        $this->alert('success', 'Deleted successfully.');
+/*        $this->alert('success', 'Deleted successfully.');*/
     }
 
     public function cancelled()
     {
-        $this->alert('info', 'Understood');
+/*        $this->alert('info', 'Understood');*/
     }
 
     public function destroy()

@@ -2,15 +2,18 @@
 
 namespace App\Http\Livewire;
 
+
 use App\Models\Classroom;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Livewire\Component;
 use Livewire\WithPagination;
 
+
 class Classrooms extends Component
 {
     use WithPagination;
     use AuthorizesRequests;
+
 
     protected $listeners = [
         'confirmed',
@@ -71,7 +74,6 @@ class Classrooms extends Component
 
         $this->resetInput();
         $this->emit('closeModal');
-        $this->alert('success', 'Classroom Successfully created.');
     }
 
     public function edit($id)
@@ -113,32 +115,32 @@ class Classrooms extends Component
             ]);
 
             $this->resetInput();
-            $this->alert('success', 'Classroom Successfully updated.');
+
         }
     }
 
     public function triggerConfirm($id)
     {
         $this->deleteId = $id;
-        $this->confirm('Do you want to delete?', [
+     /*$this->confirm('Do you want to delete?', [
             'toast' => false,
             'position' => 'center',
             'showConfirmButton' => true,
             'cancelButtonText' => 'Cancel',
             'onConfirmed' => 'confirmed',
             'onCancelled' => 'cancelled',
-        ]);
+        ]);*/
+        $this->destroy();
     }
 
     public function confirmed()
     {
-        $this->destroy();
-        $this->alert('success', 'Deleted successfully.');
+      /*  $this->destroy();*/
     }
 
     public function cancelled()
     {
-        $this->alert('info', 'Understood');
+      /*  $this->flash('info', 'Understood');*/
     }
 
     public function destroy()
@@ -153,14 +155,16 @@ class Classrooms extends Component
 
     public function bulkDeleteTriggerConfirm()
     {
-        $this->confirm('Do you want to delete?', [
+        /*$this->confirm('Do you want to delete?', [
             'toast' => false,
             'position' => 'center',
             'showConfirmButton' => true,
             'cancelButtonText' => 'Cancel',
             'onConfirmed' => 'bulkDelete',
             'onCancelled' => 'cancelled',
-        ]);
+        ]);*/
+
+        $this->bulkDelete();
     }
 
     public function bulkDelete()
@@ -169,7 +173,7 @@ class Classrooms extends Component
 
         Classroom::whereKey($this->checked)->delete();
         $this->checked = [];
-        $this->alert('success', 'Deleted successfully.');
+/*        $this->flash('success', 'Deleted successfully.');*/
     }
 
     public function updatedCheckedAll($value)
@@ -180,5 +184,4 @@ class Classrooms extends Component
             $this->checked = [];
         }
     }
-
 }

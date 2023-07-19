@@ -46,9 +46,7 @@ class Users extends Component
     {
         $this->name = null;
         $this->email = null;
-        $this->image = null;
         $this->selected_roles = null;
-        $this->image = null;
         $this->password = null;
         $this->password_confirmation = null;
         $this->roles = null;
@@ -64,7 +62,7 @@ class Users extends Component
             'email' => 'required|email|unique:users,email',
             'password' => 'required|confirmed',
             'selected_roles' => 'required',
-            'image' => 'nullable|image|max:1024', // 1MB Max
+            'image' => 'nullable|image|max:2048', // 1MB Max
         ]);
 
         $image = '';
@@ -83,7 +81,7 @@ class Users extends Component
 
         $this->resetInput();
         $this->emit('closeModal');
-        $this->alert('success', 'User Successfully created.');
+/*        $this->alert('success', 'User Successfully created.');*/
     }
 
     public function edit($id)
@@ -117,7 +115,7 @@ class Users extends Component
             'email' => 'required|email|unique:users,email,' . $this->selected_id,
             'password' => 'confirmed',
             'roles' => 'required',
-            'image' => 'nullable|image|max:1024', // 1MB Max
+            'image' => 'nullable|image|max:2048', // 1MB Max
 
         ]);
 
@@ -143,32 +141,33 @@ class Users extends Component
             $record->assignRole($this->selected_roles);
 
             $this->resetInput();
-            $this->alert('success', 'User Successfully updated.');
+/*            $this->alert('success', 'User Successfully updated.');*/
         }
     }
 
     public function triggerConfirm($id)
     {
         $this->deleteId = $id;
-        $this->confirm('Do you want to delete?', [
+      /*  $this->confirm('Do you want to delete?', [
             'toast' => false,
             'position' => 'center',
             'showConfirmButton' => true,
             'cancelButtonText' => 'Cancel',
             'onConfirmed' => 'confirmed',
             'onCancelled' => 'cancelled',
-        ]);
+        ]);*/
+        $this->destroy();
     }
 
     public function confirmed()
     {
         $this->destroy();
-        $this->alert('success', 'Deleted successfully.');
+
     }
 
     public function cancelled()
     {
-        $this->alert('info', 'Understood');
+
     }
 
     public function destroy()

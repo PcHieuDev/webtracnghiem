@@ -2,7 +2,7 @@
     <div class="nav-scroller">
         <!-- Brand logo -->
         <a class="navbar-brand" href="/">
-            <img src="{{ Storage::url(websiteLog()) }}" alt="" />
+            <img src='https://www.facebook.com/photo/?fbid=1669646310129689&set=pob.100012530073503' alt="" />
         </a>
         <!-- Navbar nav -->
         <ul class="navbar-nav flex-column" id="sideNavbar">
@@ -24,27 +24,27 @@
             @can('answer-list')<li class="nav-item">
                 <a href="{{ url('answers-list') }}"
                     class="nav-link {{request()->is('answers-list') ? 'active' : ''}}"><i
-                        class="nav-icon icon-xs me-2 fa fa-list"></i> {{__('Check Answer')}}</a>
+                        class="nav-icon icon-xs me-2 fa fa-list"></i> {{__('Kiểm Tra Đáp Án')}}</a>
             </li>@endcan
 
             @can('question-list')<li class="nav-item">
                 <a href="{{ url('questions') }}" class="nav-link {{request()->is('questions') ? 'active' : ''}}"><i
-                        class="nav-icon icon-xs me-2 fa fa-list"></i> {{__('Questions')}}</a>
+                        class="nav-icon icon-xs me-2 fa fa-list"></i> {{__('Các Câu Hỏi')}}</a>
             </li>@endcan
             @can('quiz-list')<li class="nav-item">
                 <a href="{{ url('quizzes') }}" class="nav-link {{request()->is('quizzes') ? 'active' : ''}}"><i
-                        class="nav-icon icon-xs me-2 fa fa-list"></i> {{__('Quizzes')}}</a>
+                        class="nav-icon icon-xs me-2 fa fa-list"></i> {{__(' Các Bài Kiểm Tra')}}</a>
             </li>@endcan
             @can('classroom-list')<li class="nav-item">
                 <a href="{{ url('classrooms') }}" class="nav-link {{request()->is('classrooms') ? 'active' : ''}}"><i
-                        class="nav-icon icon-xs me-2 fa fa-list"></i> {{__('Classrooms')}}</a>
+                        class="nav-icon icon-xs me-2 fa fa-list"></i> {{__('Các Lớp Học')}}</a>
             </li>@endcan
             @can('student-list')<li class="nav-item">
                 <a href="{{ url('students') }}" class="nav-link {{request()->is('students') ? 'active' : ''}}"><i
-                        class="nav-icon icon-xs me-2 fa fa-list"></i> {{__('Students')}}</a>
+                        class="nav-icon icon-xs me-2 fa fa-list"></i> {{__('Các Học Sinh')}}</a>
             </li>@endcan
 
-            @if (auth()->user()->hasRole('admin'))
+           {{-- @if (auth()->user()->hasRole('admin'))
             @if (auth()->user()->can('user-list') || auth()->user()->can('role-list') ||
             auth()->user()->can('permission-list'))
             <li class="nav-item">
@@ -71,26 +71,50 @@
                                     class="nav-icon fa fa-user-tag icon-xs me-2"></i> Roles</a>
                         </li>
                         @endcan
-                        {{-- @can('permission-list')
-                        <li class="nav-item">
-                            <a href="{{ url('/admin/permissions') }}"
-                                class="nav-link {{ request()->is('admin/permissions') ? 'active' : '' }}"><i
-                                    class="nav-icon fa fa-key icon-xs me-2"></i> Permissions</a>
-                        </li>
-                        @endcan
-                        @can('siteSetting-edit')
-                        <li class="nav-item">
-                            <a href="{{ url('/admin/site_settings') }}"
-                                class="nav-link {{ request()->is('admin/site_settings') ? 'active' : '' }}"><i
-                                    class="nav-icon fa fa-cog icon-xs me-2"></i> Site settings</a>
-                        </li>
-                        @endcan --}}
                     </ul>
                 </div>
             </li>
             @endif
+            @endif--}}
 
-            @endif
+            @auth
+                @if (auth()->user()->hasRole('admin') && (auth()->user()->can('user-list') || auth()->user()->can('role-list')))
+                    <li class="nav-item">
+                        <a class="nav-link has-arrow collapsed" href="#!" data-bs-toggle="collapse"
+                           data-bs-target="#navAuthentication" aria-expanded="false" aria-controls="navAuthentication">
+                            <i class="nav-icon icon-xs me-2 fa fa-lock"></i>Quyền Hạn Admin
+                        </a>
+                        <div id="navAuthentication"
+                             class="collapse {{ request()->is('admin/users') || request()->is('admin/roles') ? 'show' : '' }}"
+                             data-bs-parent="#sideNavbar">
+                            <ul class="nav flex-column">
+                                @can('user-list')
+                                    <li class="nav-item">
+                                        <a href="{{ url('/admin/users') }}"
+                                           class="nav-link {{ request()->is('admin/users') ? 'active' : '' }}">
+                                            <i class="nav-icon fa fa-user icon-xs me-2"></i> Người Dùng
+                                        </a>
+                                    </li>
+                                @endcan
+                                @can('role-list')
+                                    <li class="nav-item">
+                                        <a href="{{ url('/admin/roles') }}"
+                                           class="nav-link {{ request()->is('admin/roles') ? 'active' : '' }}">
+                                            <i class="nav-icon fa fa-user-tag icon-xs me-2"></i> Các Quyền
+                                        </a>
+                                    </li>
+                                @endcan
+                                    <li class="nav-item">
+                                        <a href="{{ url('/admin/profile') }}"
+                                           class="nav-link">
+                                            <i class="nav-icon fa fa-user-tag icon-xs me-2"></i> Thông Tin Admin
+                                        </a>
+                                    </li>
+                            </ul>
+                        </div>
+                    </li>
+                @endif
+            @endauth
 
         </ul>
 

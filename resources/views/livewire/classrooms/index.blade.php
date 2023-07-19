@@ -4,12 +4,12 @@
         <div>
             <div class="d-flex justify-content-between align-items-center">
                 <div class="mb-2 mb-lg-0">
-                    <h3 class="mb-0 fw-bold text-white">{{__('Classrooms Listing')}}</h3>
+                    <h3 class="mb-0 fw-bold text-white">{{__('Danh Sách Lớp Học')}}</h3>
                 </div>
                 <div>
                 @can('classroom-create')
                     <button type="button"  data-bs-toggle="modal" wire:click.prevent="resetInput()"  data-bs-target="#classroomCreateModal"
-                        class="btn btn-white"><i class="fa fa-plus"></i> {{__('Create New Classrooms')}}</button>
+                        class="btn btn-white"><i class="fa fa-plus"></i> {{__('Tạo Lớp Học')}}</button>
                 @endcan
                 </div>
             </div>
@@ -24,7 +24,7 @@
                     @include('livewire.classrooms.update')
                     @include('livewire.classrooms.view')
 
-                    
+
                     <div class="col-md-12">
                         <div class="row mb-2 mt-2 justify-content-md-between">
                             <div class="col-md-2 pb-sm-3">
@@ -44,7 +44,7 @@
 
                                     @can('classroom-delete')
                     <button class="btn btn-danger btn-sm mb-2" {{ count($checked) == 0 ? 'disabled' : '' }}
-                        wire:click='bulkDeleteTriggerConfirm()'> <i class="fa fa-trash" aria-hidden="true"></i> {{__('Delete')}}({{ count($checked) }})
+                        wire:click='bulkDeleteTriggerConfirm()'> <i class="fa fa-trash" aria-hidden="true"></i> {{__('Xóa tất cả')}}({{ count($checked) }})
                     </button>
                     @endcan
                                 </div>
@@ -53,7 +53,7 @@
                                 <div class="input-group mb-3">
                                     <span class="input-group-text border-right-0 border"><i class="fa fa-search"></i></span>
                                     <input wire:model='keyWord' type="text" class="form-control border-left-0 border" name="search" id="search"
-                                    placeholder="{{__('Search Classrooms')}}">
+                                    placeholder="{{__('Search')}}">
                                 </div>
                             </div>
                         </div>
@@ -68,10 +68,10 @@
 
                             @endcan
 								<td>#</td>
-								<th>{{__('Classroom Name')}}</th>
-								<th>{{__('Classroom Unique Id')}}</th>
-								<th>{{__('Teacher')}}</th>
-								<td>{{__('ACTIONS')}}</td>
+								<th>{{__('Tên Lớp Học')}}</th>
+								<th>{{__('ID Lớp Học')}}</th>
+								<th>{{__('Giáo Viên')}}</th>
+								<td>{{__('Hành Động')}}</td>
 							</tr>
 						</thead>
 						<tbody>
@@ -93,7 +93,7 @@
 
                                         @can('classroom-edit')
 
-                                        <button type="button" data-bs-toggle="modal" data-bs-target="#classroomUpdateModal" class="btn btn-success btn-sm"wire:click="edit({{ $row->id }})">Edit   <i
+                                        <button type="button" data-bs-toggle="modal" data-bs-target="#classroomUpdateModal" class="btn btn-success btn-sm"wire:click="edit({{ $row->id }})">Sửa   <i
                                             class="fa fa-edit"></i></button>
 
                                         @endcan
@@ -101,7 +101,7 @@
                                         @can('classroom-delete')
 
                                             <button class="btn btn-danger btn-sm"
-                                            wire:click="triggerConfirm({{ $row->id }})">Delete   <i
+                                            wire:click="triggerConfirm({{ $row->id }})">Xóa   <i
                                                 class="fa fa-trash"></i> </button>
                                         @endcan
 

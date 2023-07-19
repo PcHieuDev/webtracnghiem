@@ -4,7 +4,7 @@
     <div class="modal-dialog " role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Update User</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Cập Nhật Người Dùng</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -21,30 +21,38 @@
                             placeholder="Email">@error('email') <span
                             class="error text-danger">{{ $message }}</span> @enderror
                     </div>
-                    <div class="form-group">
+                    {{--<div class="form-group">
                         <label for="image"></label>
                         <input wire:model="image" type="file" class="form-control" id="image"
                             placeholder="Image">@error('image') <span
                             class="error text-danger">{{ $message }}</span> @enderror
-                    </div>
+                    </div>--}}
                     <div class="form-group">
-                        <strong>Roles:</strong>
+                        <strong>Quyền:</strong>
                         <br />
-                        @foreach ($roles as $key => $value)
+                       {{-- @foreach ($roles as $key => $value)
                             <label>
                                 <input wire:model.defer='selected_roles.{{$key}}' type="checkbox" value="{{$value}}">
                                 {{ $value }}
                             </label>
                             <br />
+                        @endforeach--}}
+                        @foreach ($roles as $key => $value)
+                            @if ($value !== 'admin')
+                                <label>
+                                    <input wire:model.defer='selected_roles.{{$key}}' type="checkbox" value="{{$value}}">
+                                    {{ $value }}
+                                </label>
+                                <br />
+                            @endif
                         @endforeach
                     </div>
-
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Thoát</button>
                 <button type="button" wire:click.prevent="update()" data-bs-dismiss="modal"
-                    class="btn bg-primary close-modal text-white">Update</button>
+                    class="btn bg-primary close-modal text-white">Cập Nhật</button>
             </div>
         </div>
     </div>

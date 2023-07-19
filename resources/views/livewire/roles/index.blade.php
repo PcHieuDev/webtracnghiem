@@ -4,7 +4,7 @@
         <div>
             <div class="d-flex justify-content-between align-items-center">
                 <div class="mb-2 mb-lg-0">
-                    <h3 class="mb-0 fw-bold text-white">{{__('Role Listing')}}</h3>
+                    <h3 class="mb-0 fw-bold text-white">{{__('Danh Sách Các Quyền')}}</h3>
                 </div>
                 {{-- <div>
                     @can('role-create')
@@ -26,14 +26,14 @@
                     <div class="table-responsive">
                         <div class="mb-4">
                             <input wire:model='keyWord' type="text" class="form-control" name="search" id="search"
-                                placeholder="{{__('Search Roles')}}">
+                                placeholder="{{__('Search')}}">
                         </div>
                         <table class="table table-bordered table-sm">
                             <thead class="thead">
                                 <tr>
                                     <td>#</td>
-                                    <th>{{__('Name')}}</th>
-                                    <td>{{__('ACTIONS')}}</td>
+                                    <th>{{__('Tên')}}</th>
+                                    <td>{{__('Hành Động')}}</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -47,16 +47,16 @@
                                             data-bs-target="#staticBackdropShow" class="btn btn-warning btn-sm"
                                             wire:click="show({{ $row->id }})"><i class="fa fa-eye"></i></button> --}}
 
-                                        @can('role-edit')
+                                       {{-- @can('role-edit')
                                         <button type="button" data-bs-toggle="modal"
                                             data-bs-target="#staticBackdropUpdate" class="btn btn-success btn-sm"
-                                            wire:click="edit({{ $row->id }})">Edit   <i class="fa fa-edit"></i></button>
-                                        @endcan
+                                            wire:click="edit({{ $row->id }})">Sửa   <i class="fa fa-edit"></i></button>
+                                        @endcan--}}
 
                                         @can('role-delete')
 
                                         <button class="btn btn-danger btn-sm"
-                                            wire:click="triggerConfirm({{ $row->id }})">Delete   <i class="fa fa-trash"></i>
+                                            wire:click="triggerConfirm({{ $row->id }})">Xóa   <i class="fa fa-trash"></i>
                                         </button>
                                         @endcan
 

@@ -9,13 +9,13 @@ use Illuminate\Support\Facades\Auth;
 
 class Classroom extends Model
 {
-	use HasFactory;
+    use HasFactory;
 
     public $timestamps = true;
 
     protected $table = 'classrooms';
 
-    protected $fillable = ['classroom_name','classroom_unique_id','teacher_id'];
+    protected $fillable = ['classroom_name', 'classroom_unique_id', 'teacher_id'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
@@ -49,9 +49,9 @@ class Classroom extends Model
         static::addGlobalScope('classStudent', function (Builder $builder) {
             if (auth()->check()) {
                 if (Auth::user()->hasRole('student')) {
-                        return $builder->whereHas('students', function ($query) {
-                            $query->where('user_id', auth()->user()->id);
-                        });
+                    return $builder->whereHas('students', function ($query) {
+                        $query->where('user_id', auth()->user()->id);
+                    });
 
                 }
                 if (Auth::user()->hasRole('teacher')) {
@@ -59,7 +59,6 @@ class Classroom extends Model
                 }
             }
         });
-
 
 
     }

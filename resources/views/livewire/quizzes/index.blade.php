@@ -4,12 +4,12 @@
         <div>
             <div class="d-flex justify-content-between align-items-center">
                 <div class="mb-2 mb-lg-0">
-                    <h3 class="mb-0 fw-bold text-white">{{__('Quizzes Listing')}}</h3>
+                    <h3 class="mb-0 fw-bold text-white">{{__('Danh Sách Bài Kiểm Tra')}}</h3>
                 </div>
                 <div>
                 @can('quiz-create')
                     <button type="button"  data-bs-toggle="modal" wire:click.prevent="resetInput()"  data-bs-target="#quizCreateModal"
-                        class="btn btn-white"><i class="fa fa-plus"></i> {{__('Create New Quizzes')}}</button>
+                        class="btn btn-white"><i class="fa fa-plus"></i> {{__('Tạo mới')}}</button>
                 @endcan
                 </div>
             </div>
@@ -24,7 +24,7 @@
                     @include('livewire.quizzes.update')
                     @include('livewire.quizzes.view')
 
-                    
+
                     <div class="col-md-12">
                         <div class="row mb-2 mt-2 justify-content-md-between">
                             <div class="col-md-2 pb-sm-3">
@@ -52,7 +52,7 @@
                                 <div class="input-group mb-3">
                                     <span class="input-group-text border-right-0 border"><i class="fa fa-search"></i></span>
                                     <input wire:model='keyWord' type="text" class="form-control border-left-0 border" name="search" id="search"
-                                    placeholder="{{__('Search Quizzes')}}">
+                                    placeholder="{{__('Search')}}">
                                 </div>
                             </div>
                         </div>
@@ -67,10 +67,10 @@
 
                             @endcan
 								<td>#</td>
-								<th>{{__('Quiz Name')}}</th>
-								<th>{{__('Per Question Mark')}}</th>
-								<th>{{__('Classroom')}}</th>
-								<td>{{__('ACTIONS')}}</td>
+								<th>{{__('Tên Bài Kiểm Tra')}}</th>
+								<th>{{__('Điểm Mỗi Câu')}}</th>
+								<th>{{__('Lớp Học')}}</th>
+								<td>{{__('Hành Động')}}</td>
 							</tr>
 						</thead>
 						<tbody>
@@ -92,7 +92,7 @@
 
                                         @can('quiz-edit')
 
-                                        <button type="button" data-bs-toggle="modal" data-bs-target="#quizUpdateModal" class="btn btn-success btn-sm"wire:click="edit({{ $row->id }})">Edit   <i
+                                        <button type="button" data-bs-toggle="modal" data-bs-target="#quizUpdateModal" class="btn btn-success btn-sm"wire:click="edit({{ $row->id }})">Sửa   <i
                                             class="fa fa-edit"></i></button>
 
                                         @endcan
@@ -100,7 +100,7 @@
                                         @can('quiz-delete')
 
                                             <button class="btn btn-danger btn-sm"
-                                            wire:click="triggerConfirm({{ $row->id }})">Delete   <i
+                                            wire:click="triggerConfirm({{ $row->id }})">Xóa   <i
                                                 class="fa fa-trash"></i> </button>
                                         @endcan
 

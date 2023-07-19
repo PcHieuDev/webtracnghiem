@@ -16,7 +16,7 @@ class Home extends Component
         return view('livewire.home')->extends('layouts.frontend');
     }
 
-    public function store()
+    /*public function store()
     {
         if (!auth()->check()) {
             return redirect()->route('login');
@@ -37,6 +37,32 @@ class Home extends Component
             'user_id' => auth()->user()->id,
         ]);
 
+        return redirect()->route('classroom.show', $classroom->id);
+    }*/
+    public function store()
+    {
+        if (!auth()->check()) {
+            return redirect()->route('login');
+        }
+
+        $this->validate([
+            'classroom_id' => 'required',
+        ]);
+
+        $classroom = DB::table('classrooms')->where('classroom_unique_id', $this->classroom_id)->first();
+
+        // Kiểm tra xem lớp học có tồn tại không
+        if (!$classroom) {
+            // Nếu không tìm thấy lớp học, chuyển hướng với thông báo
+            return redirect()->back()->with('error', 'ID không tồn tại.');
+        }
+        if (ClassroomStudent::where('user_id', auth()->user()->id)->where('classroom_id', $this->classroom_id)->count()) {
+            return redirect()->route('classroom.show', $classroom->id);
+        }
+        ClassroomStudent::insert([
+            'classroom_id' => $classroom->id,
+            'user_id' => auth()->user()->id,
+        ]);
         return redirect()->route('classroom.show', $classroom->id);
     }
 }

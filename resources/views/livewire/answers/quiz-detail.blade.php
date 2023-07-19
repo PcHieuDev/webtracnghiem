@@ -1,12 +1,12 @@
 <div>
 
     <div class="card card-body">
-        <p>Total marks obtained: {{$answers->sum('mark')}}</p>
+        <p>Tổng điểm đạt được: {{$answers->sum('mark')}}</p>
         <h5>Multiple choice and Missing word questions:</h5>
         <table class="table table-striped shadow p-4">
             <thead>
                 <tr>
-                    <th>#</th>
+                    <th>TT</th>
                     <th>Question</th>
                     <th>Answer</th>
                     <th>Correct ans</th>
@@ -29,7 +29,7 @@
         <table class="table table-striped shadow p-4">
             <thead>
                 <tr>
-                    <th>#</th>
+                    <th>TT</th>
                     <th>Question</th>
                     <th>Answer</th>
                     <th>Mark</th>

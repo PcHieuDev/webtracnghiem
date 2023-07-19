@@ -11,7 +11,7 @@
     </div>
     <div class="col-md-12 mt-5">
          <div class="card">
-           <img class="card-img-top" src="{{ asset('online-quiz-system.png') }}" style="
+           <img class="card-img-top" src="{{ asset('webtracnghiem.png') }}" style="
 
               width: 50%;
                 height: auto;
@@ -26,8 +26,5 @@
            " alt="">
          </div>
     </div>
-
-
-
 </div>
 

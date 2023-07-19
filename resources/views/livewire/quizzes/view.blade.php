@@ -22,12 +22,6 @@
                 <div class="form-control  border-0">{{$per_question_mark}}</div>
             </div>
 
-
-
-
-
-
-
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{__('Close')}}</button>

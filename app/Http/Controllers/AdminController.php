@@ -34,11 +34,11 @@ class AdminController extends Controller
             'password' => ['nullable', 'string', 'min:8', 'confirmed'],
         ]);
 
-        $requestData = $request->all(); 
+        $requestData = $request->all();
 
-        if ($request->hasFile('image')) {
+        /*if ($request->hasFile('image')) {
             $requestData['image'] = $request->file('image')->store('uploads', 'public');
-        }
+        }*/
         if ($request->password) {
             $requestData['password'] = bcrypt($request->password);
         }else{

@@ -9,13 +9,13 @@ use Illuminate\Support\Facades\Auth;
 
 class Quiz extends Model
 {
-	use HasFactory;
+    use HasFactory;
 
     public $timestamps = true;
 
     protected $table = 'quizzes';
 
-    protected $fillable = ['quiz_name','per_question_mark','classroom_id'];
+    protected $fillable = ['quiz_name', 'per_question_mark', 'classroom_id'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
@@ -41,27 +41,21 @@ class Quiz extends Model
         return $this->hasMany('App\Models\Answer', 'quiz_id', 'id');
     }
 
-     // model boot
-     protected static function boot()
-     {
-         parent::boot();
+    // model boot
+    protected static function boot()
+    {
+        parent::boot();
 
-         static::addGlobalScope('quiz', function (Builder $builder) {
-             if (auth()->check()) {
-                 if (Auth::user()->hasRole('teacher')) {
-                         return $builder->whereHas('classroom', function ($query) {
-                             $query->where('teacher_id', auth()->user()->id);
-                         });
-
-                 }
-
-             }
-         });
-
-
-
-     }
-
+        static::addGlobalScope('quiz', function (Builder $builder) {
+            if (auth()->check()) {
+                if (Auth::user()->hasRole('teacher')) {
+                    return $builder->whereHas('classroom', function ($query) {
+                        $query->where('teacher_id', auth()->user()->id);
+                    });
+                }
+            }
+        });
+    }
 
 
 }

@@ -55,7 +55,7 @@ class Permissions extends Component
 
         $this->resetInput();
 		$this->emit('closeModal');
-		 $this->alert('success', 'Permission Successfully created.');
+/*		 $this->alert('success', 'Permission Successfully created.');*/
     }
 
     public function edit($id)
@@ -91,7 +91,7 @@ class Permissions extends Component
             ]);
 
             $this->resetInput();
-			$this->alert('success', 'Permission Successfully updated.');
+/*			$this->alert('success', 'Permission Successfully updated.');*/
         }
     }
 
@@ -111,12 +111,12 @@ class Permissions extends Component
     public function confirmed()
     {
         $this->destroy();
-        $this->alert( 'success', 'Deleted successfully.');
+/*        $this->alert( 'success', 'Deleted successfully.');*/
     }
 
     public function cancelled()
     {
-        $this->alert('info', 'Understood');
+/*        $this->alert('info', 'Understood');*/
     }
 
     public function destroy()

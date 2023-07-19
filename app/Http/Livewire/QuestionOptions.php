@@ -44,7 +44,7 @@ class QuestionOptions extends Component
     }
 
     public function resetInput()
-    {		
+    {
 		$this->option_name = null;
 		$this->question_id = null;
     }
@@ -58,21 +58,21 @@ class QuestionOptions extends Component
 		'question_id' => 'required',
         ]);
 
-        QuestionOption::create([ 
+        QuestionOption::create([
 			'option_name' => $this-> option_name,
 			'question_id' => $this-> question_id
         ]);
 
         $this->resetInput();
 		$this->emit('closeModal');
-		$this->alert('success', 'Question Option Successfully created.');
+/*		$this->alert('success', 'Question Option Successfully created.');*/
     }
 
     public function edit($id)
     {
         $this->resetInput();
         $record = QuestionOption::findOrFail($id);
-        $this->selected_id = $id; 
+        $this->selected_id = $id;
 		$this->option_name = $record-> option_name;
 		$this->question_id = $record-> question_id;
 
@@ -81,7 +81,7 @@ class QuestionOptions extends Component
     {
         $record = QuestionOption::findOrFail($id);
 
-        $this->selected_id = $id; 
+        $this->selected_id = $id;
 		$this->option_name = $record-> option_name;
 		$this->question_id = $record-> question_id;
 
@@ -98,13 +98,13 @@ class QuestionOptions extends Component
 
         if ($this->selected_id) {
 			$record = QuestionOption::find($this->selected_id);
-            $record->update([ 
+            $record->update([
 			'option_name' => $this-> option_name,
 			'question_id' => $this-> question_id
             ]);
 
             $this->resetInput();
-			$this->alert('success', 'Question Option Successfully updated.');
+/*			$this->alert('success', 'Question Option Successfully updated.');*/
         }
     }
 
@@ -124,12 +124,12 @@ class QuestionOptions extends Component
     public function confirmed()
     {
         $this->destroy();
-        $this->alert( 'success', 'Deleted successfully.');
+/*        $this->alert( 'success', 'Deleted successfully.');*/
     }
 
     public function cancelled()
     {
-        $this->alert('info', 'Understood');
+/*        $this->alert('info', 'Understood');*/
     }
 
     public function destroy()
@@ -160,7 +160,7 @@ class QuestionOptions extends Component
 
         QuestionOption::whereKey($this->checked)->delete();
         $this->checked = [];
-        $this->alert( 'success', 'Deleted successfully.');
+/*        $this->alert( 'success', 'Deleted successfully.');*/
     }
 
     public function updatedCheckedAll($value)
