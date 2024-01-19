@@ -98,14 +98,7 @@ class Permissions extends Component
      public function triggerConfirm($id)
     {
         $this->deleteId = $id;
-        $this->confirm('Do you want to delete?', [
-            'toast' => false,
-            'position' => 'center',
-            'showConfirmButton' => true,
-            'cancelButtonText' => 'Cancel',
-            'onConfirmed' => 'confirmed',
-            'onCancelled' => 'cancelled',
-        ]);
+        $this->destroy();
     }
 
     public function confirmed()

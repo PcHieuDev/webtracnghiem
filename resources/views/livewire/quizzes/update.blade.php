@@ -23,9 +23,6 @@
                             placeholder="{{__('Điểm mỗi câu')}}">@error('per_question_mark') <span
                             class="error text-danger">{{ $message }}</span> @enderror
                     </div>
-
-
-
                     <div class="form-group mt-3">
                         <label for="classroom_id">{{__('Lớp Học')}}</label>
                         <select wire:model="classroom_id" class="form-select" id="classroom_id">
@@ -33,6 +30,29 @@
                             <option value="{{$classroom->id}}">{{$classroom->classroom_name}}</option>
                             @endforeach
                         </select>
+                    </div>
+                    <div class="form-group mt-3">
+                        <label for="">{{__('Thời Gian Làm')}}</label>
+                        <select wire:model="quiz_time"  class="form-select" id="time">
+                            <option value="">{{__('Chọn Thời Gian')}}</option>
+                            <option value="1">1 phút(only test)</option>
+                            <option value="15">15 phút</option>
+                            <option value="45">45 phút</option>
+                            <option value="90">90 phút</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group mt-3">
+                        <label for="expired_quiz">{{__('Ngày Bắt Đầu')}}</label>
+                    </div>
+                    <div class="form-group mt-3">
+                        <input wire:model="start_quiz" type="datetime-local" required id="appt" name="appt" class="form-control">
+                    </div>
+                    <div class="form-group mt-3">
+                        <label for="expired_quiz">{{__('Ngày Hết Hạn')}}</label>
+                    </div>
+                    <div class="form-group mt-3">
+                        <input wire:model="expired_quiz" type="datetime-local" required id="appt" name="appt" class="form-control">
                     </div>
 
 

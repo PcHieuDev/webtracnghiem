@@ -111,14 +111,14 @@ class QuestionOptions extends Component
      public function triggerConfirm($id)
     {
         $this->deleteId = $id;
-        $this->confirm('Do you want to delete?', [
-            'toast' => false,
-            'position' => 'center',
-            'showConfirmButton' => true,
-            'cancelButtonText' => 'Cancel',
-            'onConfirmed' => 'confirmed',
-            'onCancelled' => 'cancelled',
-        ]);
+//        $this->confirm('Do you want to delete?', [
+//            'toast' => false,
+//            'position' => 'center',
+//            'showConfirmButton' => true,
+//            'cancelButtonText' => 'Cancel',
+//            'onConfirmed' => 'confirmed',
+//            'onCancelled' => 'cancelled',
+//        ]);
     }
 
     public function confirmed()
@@ -144,14 +144,15 @@ class QuestionOptions extends Component
 
     public function bulkDeleteTriggerConfirm()
     {
-        $this->confirm('Do you want to delete?', [
-            'toast' => false,
-            'position' => 'center',
-            'showConfirmButton' => true,
-            'cancelButtonText' => 'Cancel',
-            'onConfirmed' => 'bulkDelete',
-            'onCancelled' => 'cancelled',
-        ]);
+//        $this->confirm('Do you want to delete?', [
+//            'toast' => false,
+//            'position' => 'center',
+//            'showConfirmButton' => true,
+//            'cancelButtonText' => 'Cancel',
+//            'onConfirmed' => 'bulkDelete',
+//            'onCancelled' => 'cancelled',
+//        ]);
+        $this->bulkDelete();
     }
 
     public function bulkDelete()

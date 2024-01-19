@@ -1,4 +1,4 @@
-@section('title', __('Users'))
+@section('title', __('Người Dùng'))
 <div>
     <div class="col-lg-12 col-md-12 col-12">
         <div>
@@ -6,13 +6,12 @@
                 <div class="mb-2 mb-lg-0">
                     <h3 class="mb-0 fw-bold text-white">Danh Sách Người Dùng</h3>
                 </div>
-                {{-- <div>
+                 <div>
                     @can('user-create')
                         <button type="button" href="#" data-bs-toggle="modal" wire:click.prevent="resetInput()"
-                            data-bs-target="#staticBackdrop" class="btn btn-white"><i class="fa fa-plus"></i> Create New
-                            Users</button>
+                            data-bs-target="#staticBackdrop" class="btn btn-white"><i class="fa fa-plus"></i>Tạo người dùng mới</button>
                     @endcan
-                </div> --}}
+                </div>
             </div>
         </div>
     </div>
@@ -27,7 +26,7 @@
                     <div class="table-responsive">
                         <div class="mb-4">
                             <input wire:model='keyWord' type="text" class="form-control" name="search" id="search"
-                                placeholder="Search Users">
+                                placeholder="Tìm người dùng">
                         </div>
                         <table class="table table-bordered table-sm">
                             <thead class="thead">
@@ -35,10 +34,8 @@
                                     <th>#</th>
                                     <th>Tên</th>
                                     <th>Email</th>
-{{--
-                                    <th>Image</th>
---}}
-                                    <th>Quyền</th>
+{{--                                    <th>Image</th>--}}
+                                    <th>Vai Trò</th>
                                     <td>Hành Động</td>
                                 </tr>
                             </thead>
@@ -48,10 +45,10 @@
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $row->name }}</td>
                                         <td>{{ $row->email }}</td>
-                                        {{--<td>
-                                            <img src="{{ Storage::url($row->image) }}" class="img-thumbnail"
-                                                alt="image" height="100px" width="70px">
-                                        </td>--}}
+{{--                                        <td>--}}
+{{--                                            <img src="{{ Storage::url($row->image) }}" class="img-thumbnail"--}}
+{{--                                                alt="image" height="100px" width="70px">--}}
+{{--                                        </td>--}}
                                         <td>
                                             @if (!empty($row->getRoleNames()))
                                                 @foreach ($row->getRoleNames() as $val)

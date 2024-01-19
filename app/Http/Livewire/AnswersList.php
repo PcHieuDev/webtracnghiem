@@ -10,14 +10,12 @@ use Livewire\Component;
 class AnswersList extends Component
 {
     use AuthorizesRequests;
-
-
     public $answers = [];
     public $keyWord = '';
-
     public function render()
     {
         $this->authorize('student-list');
+        // kiểm tra xem có quyền...khum
 
         $keyWord = '%' . $this->keyWord . '%';
 
@@ -26,6 +24,4 @@ class AnswersList extends Component
             'students' => $this->students
         ])->extends('layouts.app');
     }
-
-
 }

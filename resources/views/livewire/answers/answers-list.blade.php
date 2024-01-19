@@ -1,4 +1,4 @@
-@section('title', __('Answers'))
+@section('title', __('Câu Trả Lời'))
 <div>
     <div class="col-lg-12 col-md-12 col-12">
         <div>
@@ -17,7 +17,7 @@
                     <div class="table-responsive">
                         <div class="mb-4">
                             <input wire:model='keyWord' type="text" class="form-control" name="search" id="search"
-                                placeholder="Search">
+                                placeholder="Tìm">
                         </div>
                         <table class="table table-bordered table-sm">
                             <thead class="thead">
@@ -25,7 +25,7 @@
                                     <td>#</td>
                                     <th>Tên</th>
                                     <th>Email</th>
-                                    <td>Hành Động</td>
+                                    <th>Hành Động</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -44,7 +44,7 @@
                                 @endforeach
                             </tbody>
                         </table>
-                        {{-- {{ $students->links() }} --}}
+{{--                         {{ $students->links() }} --}}
                     </div>
                 </div>
             </div>

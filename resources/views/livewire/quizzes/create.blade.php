@@ -31,12 +31,25 @@
                         </select>
                     </div>
                     <div class="form-group mt-3">
-                        <label for="time">{{__('Thời Gian')}}</label>
-                        <select  class="form-select" id="time">
+                        <label for="">{{__('Thời Gian Làm')}}</label>
+                        <select wire:model="quiz_time"  class="form-select" id="time">
                             <option value="">{{__('Chọn Thời Gian')}}</option>
-                                <option value="time">15p</option>
-                                <option value="time">45p</option>
+                                <option value="1">1 phút(only test)</option>
+                                <option value="15">15 phút</option>
+                                <option value="45">45 phút</option>
+                                <option value="90">90 phút</option>
                         </select>
+                    </div>
+                    <div class="form-group mt-3">
+                        <label for="start_quiz">{{__('Ngày Bắt Đầu')}}</label>
+                        <input wire:model="start_quiz" type="datetime-local" required id="appt" name="appt" class="form-control">
+                    </div>
+                    <div class="form-group mt-3">
+                        <label for="expired_quiz">{{__('Ngày Hết Hạn')}}</label>
+                    </div>
+                    <div class="form-group mt-3">
+                        <input wire:model="expired_quiz" type="datetime-local" required id="appt" name="appt" class="form-control" >
+{{--                        <input wire:model="expired_quiz" type="date" required id="appt" name="appt" class="form-control" min="{{ date('Y-m-d') }}" >--}}
                     </div>
                 </form>
             </div>

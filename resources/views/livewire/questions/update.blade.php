@@ -33,12 +33,12 @@
                             class="form-control" cols="10" rows="1"></textarea>
                         @error('question') <span class="error text-danger">{{ $message }}</span> @enderror
                     </div>
-                   {{-- <div class="form-group mt-3">
-                        <label for="image">{{__('Image')}}</label>
-                        <input type="file" wire:model="image" id="image"
-                        class="form-control">
-                        @error('image') <span class="error text-danger">{{ $message }}</span> @enderror
-                    </div>--}}
+{{--                    <div class="form-group mt-3">--}}
+{{--                        <label for="image">{{__('Image')}}</label>--}}
+{{--                        <input type="file" wire:model="image" id="image"--}}
+{{--                        class="form-control">--}}
+{{--                        @error('image') <span class="error text-danger">{{ $message }}</span> @enderror--}}
+{{--                    </div>--}}
                     @if ($long_written || $missing_word)
                         @if ($missing_word)
                         <div class="form-group mt-3">

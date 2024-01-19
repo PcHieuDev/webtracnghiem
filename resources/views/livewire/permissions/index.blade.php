@@ -1,4 +1,4 @@
-@section('title', __('Permissions'))
+@section('title', __('Các Quyền'))
 <div>
     <div class="col-lg-12 col-md-12 col-12">
         <div>
@@ -27,7 +27,7 @@
                     <div class="table-responsive">
                         <div class="mb-4">
                             <input wire:model='keyWord' type="text" class="form-control" name="search" id="search"
-                                placeholder="Search Permissions">
+                                placeholder="Tìm">
                         </div>
                         <table class="table table-bordered table-sm">
                             <thead class="thead">

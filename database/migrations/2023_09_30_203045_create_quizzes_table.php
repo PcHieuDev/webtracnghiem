@@ -19,6 +19,9 @@ class CreateQuizzesTable extends Migration
             $table->integer('per_question_mark');
             $table->bigInteger('classroom_id')->unsigned();
             $table->foreign('classroom_id')->references('id')->on('classrooms')->onDelete('cascade')->onUpdate('cascade');
+            $table->integer('quiz_time');
+            $table->date('start_quiz');
+            $table->date('expired_quiz');
             $table->timestamps();
         });
     }

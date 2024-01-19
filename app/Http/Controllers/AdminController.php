@@ -46,8 +46,9 @@ class AdminController extends Controller
         }
 
         User::find(auth()->user()->id)->update($requestData);
-        toast('Your Profile as been Updated!','success');
+//        toast('Your Profile as been Updated!','success');
 
         return back();
     }
+
 }

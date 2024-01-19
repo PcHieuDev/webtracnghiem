@@ -1,4 +1,4 @@
-@section('title', __('Classrooms'))
+@section('title', __('Danh Sách Lớp Học')   )
 <div>
     <div class="col-lg-12 col-md-12 col-12">
         <div>
@@ -7,10 +7,11 @@
                     <h3 class="mb-0 fw-bold text-white">{{__('Danh Sách Lớp Học')}}</h3>
                 </div>
                 <div>
-                @can('classroom-create')
-                    <button type="button"  data-bs-toggle="modal" wire:click.prevent="resetInput()"  data-bs-target="#classroomCreateModal"
-                        class="btn btn-white"><i class="fa fa-plus"></i> {{__('Tạo Lớp Học')}}</button>
-                @endcan
+                    @can('classroom-create')
+                        <button type="button" data-bs-toggle="modal" wire:click.prevent="resetInput()"
+                                data-bs-target="#classroomCreateModal"
+                                class="btn btn-white"><i class="fa fa-plus"></i> {{__('Tạo Lớp Học')}}</button>
+                    @endcan
                 </div>
             </div>
         </div>
@@ -23,97 +24,98 @@
                     @include('livewire.classrooms.create')
                     @include('livewire.classrooms.update')
                     @include('livewire.classrooms.view')
-
-
                     <div class="col-md-12">
                         <div class="row mb-2 mt-2 justify-content-md-between">
                             <div class="col-md-2 pb-sm-3">
                                 <div class="row g-3 align-items-center border-1 ">
-                                    {{-- <div class="col-auto">
-                                        <label for="" class="col-form-label">{{__('Per Page')}}</label>
-                                    </div>
-                                    <div class="col-auto">
-                                        <select wire:model='perPage' class="form-select">
-                                            <option value="10">10</option>
-                                            <option value="15">15</option>
-                                            <option value="20">20</option>
-                                            <option value="50">50</option>
-                                            <option value="50">100</option>
-                                        </select>
-                                    </div> --}}
-
                                     @can('classroom-delete')
-                    <button class="btn btn-danger btn-sm mb-2" {{ count($checked) == 0 ? 'disabled' : '' }}
-                        wire:click='bulkDeleteTriggerConfirm()'> <i class="fa fa-trash" aria-hidden="true"></i> {{__('Xóa tất cả')}}({{ count($checked) }})
-                    </button>
-                    @endcan
+                                        <button class="btn btn-danger btn-sm mb-2"
+                                                {{ count($checked) == 0 ? 'disabled' : '' }}
+                                                wire:click='bulkDeleteTriggerConfirm()'><i class="fa fa-trash"
+                                                                                           aria-hidden="true"></i> {{__('Xóa tất cả')}}
+                                            ({{ count($checked) }})
+                                        </button>
+                                    @endcan
                                 </div>
                             </div>
+
                             <div class="col-md-4">
                                 <div class="input-group mb-3">
-                                    <span class="input-group-text border-right-0 border"><i class="fa fa-search"></i></span>
-                                    <input wire:model='keyWord' type="text" class="form-control border-left-0 border" name="search" id="search"
-                                    placeholder="{{__('Search')}}">
+                                    <span class="input-group-text border-right-0 border">
+                                        <i class="fa fa-search"></i></span>
+                                    <input wire:model='keyWord' type="text" class="form-control border-left-0 border"
+                                           name="search" id="search"
+                                           placeholder="{{__('Tìm')}}">
                                 </div>
                             </div>
                         </div>
                     </div>
-				<div class="table-responsive">
-					<table class="table table-bordered table-sm">
-						<thead class="thead">
-							<tr>
-                            @can('classroom-delete')
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-sm">
+                            <thead class="thead">
+                            <tr>
+                                @can('classroom-delete')
 
-                            <td><input type="checkbox" value="1" wire:model="checkedAll"></td>
+                                    <td><input type="checkbox" value="1" wire:model="checkedAll"></td>
 
-                            @endcan
-								<td>#</td>
-								<th>{{__('Tên Lớp Học')}}</th>
-								<th>{{__('ID Lớp Học')}}</th>
-								<th>{{__('Giáo Viên')}}</th>
-								<td>{{__('Hành Động')}}</td>
-							</tr>
-						</thead>
-						<tbody>
-							@foreach($classrooms as $row)
-							<tr>
-                            @can('classroom-delete')
-
-                            <td><input type="checkbox" value="{{ $row->id }}" wire:model="checked">
-                                        </td>
                                 @endcan
-								<td>{{ $loop->iteration }}</td>
-								<td>{{ $row->classroom_name }}</td>
-								<td>{{ $row->classroom_unique_id }}</td>
-								<td>{{ $row->teacher->name }}</td>
-								<td width="200">
+                                <td>#</td>
+                                <th>{{__('Tên Lớp Học')}}</th>
+                                <th>{{__('ID Lớp Học')}}</th>
+                                <th>{{__('Giáo Viên')}}</th>
+                                <th>{{__('Hành Động')}}</th>
+                                <th>{{__('Học Sinh')}}</th>
+                                <th>{{__('Các Bài Kiểm Tra')}}</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @foreach($classrooms as $row)
+                                <tr>
+                                    @can('classroom-delete')
 
-                                        {{-- <button type="button" data-bs-toggle="modal" data-bs-target="#classroomShowModal" class="btn btn-warning btn-sm"wire:click="show({{ $row->id }})"><i
-                                            class="fa fa-eye"></i></button> --}}
+                                        <td><input type="checkbox" value="{{ $row->id }}" wire:model="checked">
+                                        </td>
+                                    @endcan
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $row->classroom_name }}</td>
+                                    <td>{{ $row->classroom_unique_id }}</td>
+                                    <td>{{ $row->teacher->name }}</td>
+
+                                    <td width="200">
 
                                         @can('classroom-edit')
 
-                                        <button type="button" data-bs-toggle="modal" data-bs-target="#classroomUpdateModal" class="btn btn-success btn-sm"wire:click="edit({{ $row->id }})">Sửa   <i
-                                            class="fa fa-edit"></i></button>
+                                            <button type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#classroomUpdateModal"
+                                                    class="btn btn-success btn-sm" wire:click="edit({{ $row->id }})">Sửa
+                                                <i class="fa fa-edit"></i></button>
 
                                         @endcan
 
                                         @can('classroom-delete')
 
                                             <button class="btn btn-danger btn-sm"
-                                            wire:click="triggerConfirm({{ $row->id }})">Xóa   <i
-                                                class="fa fa-trash"></i> </button>
+                                                    wire:click="triggerConfirm({{ $row->id }})">Xóa <i
+                                                    class="fa fa-trash"></i>
+                                            </button>
                                         @endcan
-
-
-								</td>
-							@endforeach
-						</tbody>
-					</table>
-					{{ $classrooms->links() }}
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+                                    </td>
+                                    <td>
+                                        @foreach ($row->students as $student)
+                                            <span class="badge bg-success">{{ $student->name }}</span>
+                                        @endforeach
+                                    </td>
+                                    <td>
+                                        @foreach ($row->quizzes as $quiz)
+                                            <span class="badge bg-success">{{ $quiz->quiz_name }}</span>
+                            @endforeach
+                            @endforeach
+                            </tbody>
+                        </table>
+                        {{ $classrooms->links() }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

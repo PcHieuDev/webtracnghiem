@@ -21,23 +21,24 @@
                             placeholder="Email">@error('email') <span
                             class="error text-danger">{{ $message }}</span> @enderror
                     </div>
-                    {{--<div class="form-group">
-                        <label for="image"></label>
-                        <input wire:model="image" type="file" class="form-control" id="image"
-                            placeholder="Image">@error('image') <span
-                            class="error text-danger">{{ $message }}</span> @enderror
-                    </div>--}}
+{{--                    <div class="form-group">--}}
+{{--                        <label for="image"></label>--}}
+{{--                        <input wire:model="image" type="file" class="form-control" id="image"--}}
+{{--                            placeholder="Image">@error('image') <span--}}
+{{--                            class="error text-danger">{{ $message }}</span> @enderror--}}
+{{--                    </div>--}}
                     <div class="form-group">
-                        <strong>Quyền:</strong>
+                        <strong>Vai Trò:</strong>
                         <br />
-                       {{-- @foreach ($roles as $key => $value)
+                        @foreach ($roles as $key => $value)
                             <label>
-                                <input wire:model.defer='selected_roles.{{$key}}' type="checkbox" value="{{$value}}">
+                                <input class="single-checkbox" wire:model.defer='selected_roles.{{$key}}' type="checkbox" value="{{$value}}">
                                 {{ $value }}
                             </label>
-                            <br />
-                        @endforeach--}}
-                        @foreach ($roles as $key => $value)
+                            <br>
+                        @endforeach
+
+                                               {{-- @foreach ($roles as $key => $value)
                             @if ($value !== 'admin')
                                 <label>
                                     <input wire:model.defer='selected_roles.{{$key}}' type="checkbox" value="{{$value}}">
@@ -45,7 +46,7 @@
                                 </label>
                                 <br />
                             @endif
-                        @endforeach
+                        @endforeach--}}
                     </div>
                 </form>
             </div>

@@ -10,12 +10,12 @@
             <div class="modal-body">
                 <form>
                     <div class="form-group mt-2 mb-2 border border-secondary rounded-1 p-2">
-                        <label for="name">{{__('Name')}}:-</label>
+                        <label for="name">{{__('Name')}}:</label>
                         <div>{{ $name }}</div>
                     </div>
 
                     <div class="form-group mt-2 mb-2 border border-secondary rounded-1 p-2">
-                        <label>{{__('Permissions')}}:-</label>
+                        <label>{{__('Permissions')}}:</label>
                         <div class="col-md-12">
                             @if (!empty($rolePermissions))
                                 @foreach ($rolePermissions as $permission)

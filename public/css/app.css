@@ -76,7 +76,7 @@ pre {
  */
 
 a {
-  background-color: transparent;
+  background-color: black;
 }
 
 /**
@@ -4955,13 +4955,13 @@ readers do not read off random characters that represent icons */
 .fas {
   font-family: 'Font Awesome 5 Free';
   font-weight: 900; }
-/* .nav-scroller {
-    background: #003366 !important;
+ .nav-scroller {
+    background: #000000 !important;
 }
 
 .bg-background {
-    background: #003366 !important;
-} */
+    background: #000000 !important;
+}
 
 .turbolinks-progress-bar {
     height: 5px;
@@ -5093,7 +5093,7 @@ body {
   line-height: var(--bs-body-line-height);
   color: var(--bs-body-color);
   text-align: var(--bs-body-text-align);
-  background-color: var(--bs-body-bg);
+  background-color: #000000 !important;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
@@ -18464,8 +18464,7 @@ fieldset:disabled .btn {
 }
 
 .bg-primary {
-  --bs-bg-opacity: 1;
-  background-color: rgba(var(--bs-primary-rgb), var(--bs-bg-opacity)) !important;
+    background: #000000 !important;
 }
 
 .bg-secondary {
@@ -31576,7 +31575,7 @@ h4,
 }
 
 .navbar-classic {
-  background-color: #fff;
+  background-color: #000000;
   box-shadow: 0px 2px 4px rgba(0, 0, 20, 0.08), 0px 1px 2px rgba(0, 0, 20, 0.08);
 }
 
@@ -31658,7 +31657,7 @@ h4,
 
 .header .navbar #nav-toggle {
   font-size: 20px;
-  color: #495057;
+  color: #ffffff;
   line-height: 0.5;
 }
 

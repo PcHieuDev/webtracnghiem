@@ -4,7 +4,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Create New User</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Tạo người dùng mới</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -12,7 +12,7 @@
                     <div class="form-group">
                         <label for="name"></label>
                         <input wire:model="name" type="text" class="form-control" id="name"
-                            placeholder="Name">@error('name') <span class="error text-danger">{{ $message }}</span>
+                            placeholder="Tên">@error('name') <span class="error text-danger">{{ $message }}</span>
                         @enderror
                     </div>
                     <div class="form-group">
@@ -21,18 +21,18 @@
                             placeholder="Email">@error('email') <span
                             class="error text-danger">{{ $message }}</span> @enderror
                     </div>
-                    <div class="form-group">
-                        <label for="image"></label>
-                        <input wire:model="image" type="file" class="form-control" id="image"
-                            placeholder="Image">@error('image') <span
-                            class="error text-danger">{{ $message }}</span> @enderror
-                    </div>
+{{--                    <div class="form-group">--}}
+{{--                        <label for="image"></label>--}}
+{{--                        <input wire:model="image" type="file" class="form-control" id="image"--}}
+{{--                            placeholder="Image">@error('image') <span--}}
+{{--                            class="error text-danger">{{ $message }}</span> @enderror--}}
+{{--                    </div>--}}
 
                     <div class="form-group">
                         <label for="password"></label>
 
                         <input wire:model="password" type="text" class="form-control" id="password"
-                            placeholder="password">@error('password') <span
+                            placeholder="mật khẩu">@error('password') <span
                             class="error text-danger">{{ $message }}</span> @enderror
                     </div>
                     <div class="form-group">
@@ -40,11 +40,11 @@
 
                         <input wire:model="password_confirmation" type="password" class="form-control"
                             id="password_confirmation"
-                            placeholder="Password confirmation">@error('password_confirmation') <span
+                            placeholder="Nhập lại mật khẩu">@error('password_confirmation') <span
                             class="error text-danger">{{ $message }}</span> @enderror
                     </div>
                     <div class="form-group">
-                        <strong>Roles:</strong>
+                        <strong>Vai Trò:</strong>
                         <br />
                         @foreach ($roles as $key => $value)
                             <label>

@@ -10,16 +10,16 @@
             <div class="modal-body">
                 <form>
                     <div class="form-group mt-2 mb-2 border border-secondary rounded-1 p-2">
-                        <label for="name">Name:-</label>
+                        <label for="name">Name:</label>
                         <div>{{$name}}</div>
                     </div>
 
                     <div class="form-group mt-2 mb-2 border border-secondary rounded-1 p-2">
-                        <label for="email">Email:-</label>
+                        <label for="email">Email:</label>
                         <div>{{$email}}</div>
                     </div>
                    {{-- <div class="form-group mt-2 mb-2 border border-secondary rounded-1 p-2">
-                        <label for="image">Image:-</label>
+                        <label for="image">Image:</label>
                         <div><img src="{{ Storage::url($image) }}" class="img-thumbnail" alt="image" height="200px"
                                   width="140px"></div>
                     </div>--}}

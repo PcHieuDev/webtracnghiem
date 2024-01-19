@@ -26,7 +26,8 @@
                                     <td>#</td>
                                     <th>Tên</th>
                                     <th>Email</th>
-                                    <td>Hành Động</td>
+                                    <th>Hành Động</th>
+                                    <th>Học Lớp</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -37,13 +38,13 @@
                                     <td>{{ $row->name }}</td>
                                     <td>{{ $row->email }}</td>
                                     <td>
-                                        @can('student-mail')
+{{--                                        @can('student-mail')--}}
 
-                                            <button type="button" data-bs-toggle="modal"
-                                                data-bs-target="#studentCreateModal" class="btn btn-success btn-sm"
-                                                wire:click="edit('{{ $row->email }}')">Email  <i
-                                                    class="fa fa-envelope"></i></button>
-                                        @endcan
+{{--                                            <button type="button" data-bs-toggle="modal"--}}
+{{--                                                data-bs-target="#studentCreateModal" class="btn btn-success btn-sm"--}}
+{{--                                                wire:click="edit('{{ $row->email }}')">Email  <i--}}
+{{--                                                    class="fa fa-envelope"></i></button>--}}
+{{--                                        @endcan--}}
 
                                         @can('student-delete')
 
@@ -52,6 +53,11 @@
                                                     class="fa fa-trash"></i>
                                             </button>
                                         @endcan
+                                    </td>
+                                    <td>
+                                        @foreach ($row->classrooms as $classroom)
+                                            <span class="badge bg-success">{{ $classroom->classroom_name }}</span>
+                                        @endforeach
                                     </td>
                                 </tr>
 

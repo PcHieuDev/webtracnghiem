@@ -26,11 +26,15 @@ class UserTableSeeder extends Seeder
         $role3 = Role::find(3);
 
         for ($i = 1; $i <= 10; $i++) {
-            $name = $faker->name;
-            $nameWithoutAccents = Str::ascii($name); // Chuyển tên thành viết không dấu
-            $nameWithoutSpaces = str_replace(' ', '', $nameWithoutAccents); // Loại bỏ khoảng trống
+            $lastName = $faker->lastName;
+            $firstName = $faker->firstName;
+            $fullName = $lastName . ' ' . $firstName;
+
+            $nameWithoutAccents = Str::ascii($fullName);
+            $nameWithoutSpaces = str_replace(' ', '', $nameWithoutAccents);
+
             $user = User::create([
-                'name' => $name,
+                'name' => $fullName,
                 'email' => $nameWithoutSpaces . '_195122' . str_pad($i, 4, '0', STR_PAD_LEFT) . '@dau.edu.vn',
                 'password' => Hash::make('12345678')
             ]);
@@ -38,11 +42,15 @@ class UserTableSeeder extends Seeder
         }
 
         for ($i = 1; $i <= 10; $i++) {
-            $name = $faker->name;
-            $nameWithoutAccents = Str::ascii($name);
+            $lastName = $faker->lastName;
+            $firstName = $faker->firstName;
+            $fullName = $lastName . ' ' . $firstName;
+
+            $nameWithoutAccents = Str::ascii($fullName);
             $nameWithoutSpaces = str_replace(' ', '', $nameWithoutAccents);
+
             $user = User::create([
-                'name' => $name,
+                'name' => $fullName,
                 'email' => $nameWithoutSpaces . '_195122' . str_pad($i, 4, '0', STR_PAD_LEFT) . '@dau.edu.vn',
                 'password' => Hash::make('12345678')
             ]);
@@ -50,15 +58,21 @@ class UserTableSeeder extends Seeder
         }
 
         for ($i = 1; $i <= 10; $i++) {
-            $name = $faker->name;
-            $nameWithoutAccents = Str::ascii($name);
+            $lastName = $faker->lastName;
+            $firstName = $faker->firstName;
+            $fullName = $lastName . ' ' . $firstName;
+
+            $nameWithoutAccents = Str::ascii($fullName);
+            // đưa dữ liệu ve dang ko dau
             $nameWithoutSpaces = str_replace(' ', '', $nameWithoutAccents);
+
             $user = User::create([
-                'name' => $name,
+                'name' => $fullName,
                 'email' => $nameWithoutSpaces . '_195122' . str_pad($i, 4, '0', STR_PAD_LEFT) . '@dau.edu.vn',
                 'password' => Hash::make('12345678')
             ]);
             $user->assignRole($role3);
         }
     }
+
 }

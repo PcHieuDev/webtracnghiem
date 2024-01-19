@@ -1,4 +1,4 @@
-@section('title', __('Questions'))
+@section('title', __('Các Câu Hỏi'))
 <div>
     <div class="col-lg-12 col-md-12 col-12">
         <div>
@@ -42,7 +42,7 @@
                                     </div> --}}
                                     @can('question-delete')
                     <button class="btn btn-danger btn-sm mb-2" {{ count($checked) == 0 ? 'disabled' : '' }}
-                        wire:click='bulkDeleteTriggerConfirm()'> <i class="fa fa-trash" aria-hidden="true"></i> {{__('Delete')}}({{ count($checked) }})
+                        wire:click='bulkDeleteTriggerConfirm()'> <i class="fa fa-trash" aria-hidden="true"></i> {{__('Xóa')}}({{ count($checked) }})
                     </button>
                     @endcan
                                 </div>
@@ -51,7 +51,7 @@
                                 <div class="input-group mb-3">
                                     <span class="input-group-text border-right-0 border"><i class="fa fa-search"></i></span>
                                     <input wire:model='keyWord' type="text" class="form-control border-left-0 border" name="search" id="search"
-                                    placeholder="{{__('Search')}}">
+                                    placeholder="{{__('Tìm')}}">
                                 </div>
                             </div>
                         </div>
@@ -68,8 +68,8 @@
 								<td>#</td>
 								<th>{{__('Câu Hỏi')}}</th>
 								<th>{{__('Tên Bài Kiểm Tra')}}</th>
-								{{--<th>{{__('Image')}}</th>--}}
-								<td>{{__('Hành Động')}}</td>
+{{--								<th>{{__('Image')}}</th>--}}
+								<th>{{__('Hành Động')}}</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -83,11 +83,11 @@
 								<td>{{ $loop->iteration }}</td>
 								<td>{{ $row->question }}</td>
 								<td>{{ $row->quiz->quiz_name }}</td>
-                                {{--<td>
-                                    @if ($row->image)
-                                    <img src="{{ Storage::url($row->image) }}" alt="" height="200px" width="300px" alt="image">
-                                    @endif
-                                </td>--}}
+{{--                                <td>--}}
+{{--                                    @if ($row->image)--}}
+{{--                                    <img src="{{ Storage::url($row->image) }}" alt="" height="200px" width="300px" alt="image">--}}
+{{--                                    @endif--}}
+{{--                                </td>--}}
 								<td width="200">
 
                                         {{-- <button type="button" data-bs-toggle="modal" data-bs-target="#questionShowModal" class="btn btn-warning btn-sm"wire:click="show({{ $row->id }})"><i

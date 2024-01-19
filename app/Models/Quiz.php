@@ -15,7 +15,7 @@ class Quiz extends Model
 
     protected $table = 'quizzes';
 
-    protected $fillable = ['quiz_name', 'per_question_mark', 'classroom_id'];
+    protected $fillable = ['quiz_name', 'per_question_mark', 'classroom_id', 'quiz_time','start_quiz', 'expired_quiz'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne

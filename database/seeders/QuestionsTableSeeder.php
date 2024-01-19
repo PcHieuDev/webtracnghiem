@@ -20,11 +20,11 @@ class QuestionsTableSeeder extends Seeder
                 'id' => 1,
                 'question' => 'Xem xét các tuyên bố sau:
 
-1. Hệ thống DNS được sử dụng bởi Internet cho phép máy tính xác định máy tính khác.
+                1. Hệ thống DNS được sử dụng bởi Internet cho phép máy tính xác định máy tính khác.
 
-2. Để kết nối với Internet, mỗi máy tính đều cần có một mã số duy nhất, được gọi là địa chỉ IP.
+                2. Để kết nối với Internet, mỗi máy tính đều cần có một mã số duy nhất, được gọi là địa chỉ IP.
 
-Chọn câu trả lời đúng từ các mã dưới đây:',
+                Chọn câu trả lời đúng từ các mã dưới đây:',
                 'answer' => 'Cả hai',
                 'long_written' => 0,
                 'quiz_id' => 1,
@@ -44,11 +44,11 @@ Chọn câu trả lời đúng từ các mã dưới đây:',
                 'id' => 3,
                 'question' => 'Xem xét các tuyên bố sau:
 
-1. Công ty Cổ phần Công nghệ thông tin Aksh, một công ty CNTT, đã ra mắt chương trình Gramdoot tại Jaipur, Rajasthan.
+                1. Công ty Cổ phần Công nghệ thông tin Aksh, một công ty CNTT, đã ra mắt chương trình Gramdoot tại Jaipur, Rajasthan.
 
-2. Dựa trên cáp quang, Công ty Cổ phần Công nghệ thông tin Aksh có phạm vi khoảng 3000 km.
+                2. Dựa trên cáp quang, Công ty Cổ phần Công nghệ thông tin Aksh có phạm vi khoảng 3000 km.
 
-Chọn câu trả lời đúng từ các mã dưới đây:',
+                Chọn câu trả lời đúng từ các mã dưới đây:',
                 'answer' => 'Cả hai',
                 'long_written' => 0,
                 'quiz_id' => 1,

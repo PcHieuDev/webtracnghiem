@@ -15,7 +15,7 @@ class Classroom extends Model
 
     protected $table = 'classrooms';
 
-    protected $fillable = ['classroom_name', 'classroom_unique_id', 'teacher_id'];
+    protected $fillable = ['id', 'classroom_name', 'classroom_unique_id', 'teacher_id'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany

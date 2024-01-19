@@ -24,6 +24,18 @@
                                placeholder="{{__('ID Lớp Học')}}">@error('classroom_unique_id') <span
                             class="error text-danger">{{ $message }}</span> @enderror
                     </div>
+                    <div class="form-group mt-3">
+                        <label for="students">{{__(' Thêm Học Sinh')}}</label>
+                            <div>
+                                @foreach ($allStudents as $student)
+                                    <div>
+                                        <input @if(in_array($student->id, $updateInputStudent)) checked @endif id="vehicle1" type="checkbox" wire:model="inputStudent.{{$student->id}}" value="{{$student->id}}" />
+                                        <label style="font-size: 13px;" for="vehicle1">{{ $student->name }} - {{ $student->email }}</label>
+                                    </div>
+                                @endforeach
+                            </div>
+
+                    </div>
                 </form>
             </div>
             <div class="modal-footer">

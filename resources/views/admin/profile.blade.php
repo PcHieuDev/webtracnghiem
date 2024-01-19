@@ -11,48 +11,48 @@
                 <div class="text-center">
                     <img
                     @if(Auth::check())
-                        <img alt="" src='https://gcdnb.pbrd.co/images/noObK2BuNYbj.jpg?o=1'
+                        <img alt="" src='https://i.postimg.cc/HWFZCk8X/307344524-6115994245096713-1424891674421054499-n-copy.jpg'
                              class="rounded-circle" height="60px" width="60px"/>
                     @endif
-                    <h5 style="font-size: 1.2em; color: #4B0082; font-family: 'Helvetica Neue', sans-serif; font-weight: bold; margin-top: 10px;">
-                        nGài: {{ Auth::user()->name }}
+                    <h5 style="font-size: 1.2em; color: #4B0082; font-family: 'Helvetica Neue', sans-serif; font-weight: bold; margin-top: 10px;{{ Auth::user()->name }}
                     </h5>
                     {{--<input type="file" class="form-control text-center center-block file-upload" name="image">--}}
                 </div>
             </div>
-            <div class="col-md-9">
-                <div class=" card p-5">
-                    <div class="form-input"><i class="fa fa-user"></i>
-                        <input type="text" required class="form-control form-control-profile" name="name"
-                               placeholder="Name"
-                               value="{{ auth()->user()->name }}">
-                    </div>
+            <div class=" col-md-9">
+                    <div class=" card p-5">
+                        <div class="form-input"><i class="fa fa-user"></i>
+                            <input type="text" required class="form-control form-control-profile" name="name"
+                                   placeholder="Name"
+                                   value="{{ auth()->user()->name }}">
+                        </div>
 
-                    <div class="form-input"><i class="fa fa-envelope"></i>
-                        <input type="text" required class="form-control form-control-profile" name="email"
-                               placeholder="Email address"
-                               value="{{ auth()->user()->email }}">
-                    </div>
-                    <div class="form-input"><i class="fa fa-lock"></i>
-                        <input type="password" class="form-control form-control-profile" name="password"
-                               placeholder="Mật Khẩu Mới">
-                    </div>
-                    <div class="form-input"><i class="fa fa-lock"></i>
-                        <input type="password" class="form-control form-control-profile" name="password_confirmation"
-                               placeholder="Xác Nhận Mật Khẩu Mới">
-                    </div>
+                        <div class="form-input"><i class="fa fa-envelope"></i>
+                            <input type="text" required class="form-control form-control-profile" name="email"
+                                   placeholder="Email address"
+                                   value="{{ auth()->user()->email }}">
+                        </div>
+                        <div class="form-input"><i class="fa fa-lock"></i>
+                            <input type="password" class="form-control form-control-profile" name="password"
+                                   placeholder="Mật Khẩu Mới">
+                        </div>
+                        <div class="form-input"><i class="fa fa-lock"></i>
+                            <input type="password" class="form-control form-control-profile"
+                                   name="password_confirmation"
+                                   placeholder="Xác Nhận Mật Khẩu Mới">
+                        </div>
 
-                    <div>
-                        <button type="submit" class="btn btn-primary mt-4 signup">Lưu lại</button>
+                        <div>
+                            <button type="submit" class="btn btn-primary mt-4 signup">Lưu lại</button>
+
+                        </div>
 
                     </div>
 
                 </div>
 
+
             </div>
-
-
-        </div>
 
     </form>
 

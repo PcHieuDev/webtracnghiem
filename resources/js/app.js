@@ -1,8 +1,21 @@
 import $ from "jquery";
-window.$ = window.jQuery = $;
-require("bootstrap");
-require('select2/dist/js/select2.full.min.js')
+import Swal from 'sweetalert2';
+window.Swal = Swal;
 
+window.$ = window.jQuery = $;
+require('select2');
+require('select2/dist/css/select2.css');
+
+$(document).ready(function() {
+    $('.select2').select2();
+});
+
+require('bootstrap');
+require('bootstrap-select');
+
+$(document).ready(function() {
+    $('.selectpicker').selectpicker();
+});
 require('jquery-slimscroll/jquery.slimscroll.min.js')
 
 

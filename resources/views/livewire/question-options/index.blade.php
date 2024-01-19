@@ -1,4 +1,4 @@
-@section('title', __('Question Options'))
+@section('title', __('Tùy chọn câu hỏi'))
 <div>
     <div class="col-lg-12 col-md-12 col-12">
         <div>
@@ -26,7 +26,7 @@
 
                     @can('questionOption-delete')
                     <button class="btn btn-danger btn-sm mb-2" {{ count($checked) == 0 ? 'disabled' : '' }}
-                        wire:click='bulkDeleteTriggerConfirm()'> <i class="fa fa-trash" aria-hidden="true"></i> {{__('Bulk delete')}}({{ count($checked) }})
+                        wire:click='bulkDeleteTriggerConfirm()'> <i class="fa fa-trash" aria-hidden="true"></i> {{__('Xóa Hết')}}({{ count($checked) }})
                     </button>
                     @endcan
                     <div class="col-md-12">
@@ -51,7 +51,7 @@
                                 <div class="input-group mb-3">
                                     <span class="input-group-text border-right-0 border"><i class="fa fa-search"></i></span>
                                     <input wire:model='keyWord' type="text" class="form-control border-left-0 border" name="search" id="search"
-                                    placeholder="{{__('Search Question Options')}}">
+                                    placeholder="{{__('Tìm')}}">
                                 </div>
                             </div>
                         </div>
@@ -65,7 +65,7 @@
                             <td><input type="checkbox" value="1" wire:model="checkedAll"></td>
 
                             @endcan
-								<td>#</td> 
+								<td>#</td>
 								<th>{{__('Option Name')}}</th>
 								<th>{{__('Question Id')}}</th>
 								<td>{{__('ACTIONS')}}</td>
@@ -79,7 +79,7 @@
                             <td><input type="checkbox" value="{{ $row->id }}" wire:model="checked">
                                         </td>
                                 @endcan
-								<td>{{ $loop->iteration }}</td> 
+								<td>{{ $loop->iteration }}</td>
 								<td>{{ $row->option_name }}</td>
 								<td>{{ $row->question_id }}</td>
 								<td width="200">

@@ -19,7 +19,6 @@ class ClassroomList extends Component
     public function render()
     {
         $classrooms = User::findOrFail($this->student_id)->classrooms;
-
         return view('livewire.answers.classrooms', [
             'classrooms' => $classrooms,
         ])->extends('layouts.app');

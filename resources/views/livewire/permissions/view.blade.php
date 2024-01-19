@@ -10,7 +10,7 @@
            <div class="modal-body">
 				<form>
             <div class="form-group mt-2 mb-2 border border-secondary rounded-1 p-2">
-                <label for="name">Name:-</label>
+                <label for="name">Name:</label>
                 <div>{{$name}}</div>
             </div>
                 </form>

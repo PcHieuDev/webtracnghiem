@@ -1,17 +1,17 @@
-@section('title', __('Roles'))
+@section('title', __('Các Vai Trò'))
 <div>
     <div class="col-lg-12 col-md-12 col-12">
         <div>
             <div class="d-flex justify-content-between align-items-center">
                 <div class="mb-2 mb-lg-0">
-                    <h3 class="mb-0 fw-bold text-white">{{__('Danh Sách Các Quyền')}}</h3>
+                    <h3 class="mb-0 fw-bold text-white">{{__('Danh Sách Các Vai Trò')}}</h3>
                 </div>
-                {{-- <div>
+                 <div>
                     @can('role-create')
                     <button type="button" href="#" data-bs-toggle="modal" wire:click.prevent="resetInput()"
-                        data-bs-target="#staticBackdrop" class="btn btn-white"><i class="fa fa-plus"></i> {{__('Create New  Roles')}}</button>
+                        data-bs-target="#staticBackdrop" class="btn btn-white"><i class="fa fa-plus"></i> {{__('Tạo Vai Trò Mới')}}</button>
                     @endcan
-                </div> --}}
+                </div>
             </div>
         </div>
     </div>
@@ -26,14 +26,14 @@
                     <div class="table-responsive">
                         <div class="mb-4">
                             <input wire:model='keyWord' type="text" class="form-control" name="search" id="search"
-                                placeholder="{{__('Search')}}">
+                                placeholder="{{__('Tìm')}}">
                         </div>
                         <table class="table table-bordered table-sm">
                             <thead class="thead">
                                 <tr>
                                     <td>#</td>
                                     <th>{{__('Tên')}}</th>
-                                    <td>{{__('Hành Động')}}</td>
+                                    <th>{{__('Hành Động')}}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -45,13 +45,12 @@
 
                                         {{-- <button type="button" data-bs-toggle="modal"
                                             data-bs-target="#staticBackdropShow" class="btn btn-warning btn-sm"
-                                            wire:click="show({{ $row->id }})"><i class="fa fa-eye"></i></button> --}}
-
-                                       {{-- @can('role-edit')
+                                            wire:click="show({{ $row->id }})"><i class="fa fa-eye"></i></button>--}}
+                                        @can('role-edit')
                                         <button type="button" data-bs-toggle="modal"
                                             data-bs-target="#staticBackdropUpdate" class="btn btn-success btn-sm"
                                             wire:click="edit({{ $row->id }})">Sửa   <i class="fa fa-edit"></i></button>
-                                        @endcan--}}
+                                        @endcan
 
                                         @can('role-delete')
 

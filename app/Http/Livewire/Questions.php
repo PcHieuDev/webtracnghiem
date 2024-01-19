@@ -36,6 +36,7 @@ class Questions extends Component
     public $long_written = 0;
     public $missing_word = 0;
     public $image;
+    public $anh;
 
     public function render()
     {
@@ -99,6 +100,7 @@ class Questions extends Component
 
     public function store()
     {
+
         $this->authorize('question-create');
 
         if ($this->long_written) {
@@ -123,7 +125,6 @@ class Questions extends Component
             ]);
         }
 
-        // dd($this->option, $this->answer, $this->long_written, $this->missing_word);
 
         $question = Question::create([
             'question' => $this->question,
@@ -131,7 +132,7 @@ class Questions extends Component
             'answer' => $this->answer,
             'long_written' => $this->long_written ? 1 : 0,
             'missing_word' => $this->missing_word ? 1 : 0,
-            'image' => $this->image ? $this->image->store('questions', 'public') : null,
+//            'image' => $this->image ? $this->image->store('public') : null,
         ]);
         if (!$this->long_written && !$this->missing_word) {
             foreach ($this->option as $key => $value) {
@@ -141,6 +142,7 @@ class Questions extends Component
                 ]);
             }
         }
+
 
         $this->resetInput();
         $this->emit('closeModal');
@@ -221,35 +223,83 @@ class Questions extends Component
                     ]);
                 }
             }
-
             $this->resetInput();
-/*            $this->alert('success', 'Question Successfully updated.');*/
         }
     }
+   /* public function update()
+    {
+        $this->authorize('question-edit');
+
+        if ($this->long_written) {
+            $this->validate([
+                'question' => 'required',
+                'quiz_id' => 'required',
+            ], [
+                'quiz_id.required' => 'Please select quiz',
+            ]);
+        } else {
+            $this->validate([
+                'question' => 'required',
+                'quiz_id' => 'required',
+                'option.*' => 'required',
+                'answer' => 'required',
+            ], [
+                'option.*.required' => 'Please enter option',
+                'answer.required' => 'Please enter answer',
+                'quiz_id.required' => 'Please select quiz',
+            ]);
+        }
+
+        // Lấy đối tượng câu hỏi cần cập nhật
+        $question = Question::find($this->question_id);
+
+        // Kiểm tra xem đối tượng câu hỏi có tồn tại không
+        if ($question) {
+            $question->update([
+                'question' => $this->question,
+                'quiz_id' => $this->quiz_id,
+                'answer' => $this->answer,
+                'long_written' => $this->long_written ? 1 : 0,
+                'missing_word' => $this->missing_word ? 1 : 0,
+            ]);
+
+            // Xóa tất cả các tùy chọn câu hỏi cũ (nếu có)
+            $question->options()->delete();
+
+            if (!$this->long_written && !$this->missing_word) {
+                foreach ($this->option as $key => $value) {
+                    QuestionOption::create([
+                        'question_id' => $question->id,
+                        'option_name' => $this->option[$key],
+                    ]);
+                }
+            }
+
+            $this->resetInput();
+            $this->emit('closeModal');
+            // Thông báo hoặc chuyển hướng đến trang khác (tuỳ theo yêu cầu của bạn)
+        } else {
+            // Xử lý trường hợp câu hỏi không tồn tại
+            // Có thể bạn muốn thông báo lỗi hoặc xử lý tùy theo yêu cầu cụ thể
+        }
+    }*/
+
 
     public function triggerConfirm($id)
     {
         $this->deleteId = $id;
-       /* $this->confirm('Do you want to delete?', [
-            'toast' => false,
-            'position' => 'center',
-            'showConfirmButton' => true,
-            'cancelButtonText' => 'Cancel',
-            'onConfirmed' => 'confirmed',
-            'onCancelled' => 'cancelled',
-        ]);*/
         $this->destroy();
     }
 
     public function confirmed()
     {
         $this->destroy();
-/*        $this->alert('success', 'Deleted successfully.');*/
+
     }
 
     public function cancelled()
     {
-/*        $this->alert('info', 'Understood');*/
+
     }
 
     public function destroy()
@@ -264,14 +314,9 @@ class Questions extends Component
 
     public function bulkDeleteTriggerConfirm()
     {
-        $this->confirm('Do you want to delete?', [
-            'toast' => false,
-            'position' => 'center',
-            'showConfirmButton' => true,
-            'cancelButtonText' => 'Cancel',
-            'onConfirmed' => 'bulkDelete',
-            'onCancelled' => 'cancelled',
-        ]);
+        $this->authorize('question-delete');
+
+        $this->bulkDelete();
     }
 
     public function bulkDelete()
@@ -280,7 +325,7 @@ class Questions extends Component
 
         Question::whereKey($this->checked)->delete();
         $this->checked = [];
-        $this->alert('success', 'Deleted successfully.');
+/*        $this->alert('success', 'Deleted successfully.');*/
     }
 
     public function updatedCheckedAll($value)

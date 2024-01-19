@@ -11,8 +11,23 @@
                     <a class="rounded-circle" href="#" role="button" id="dropdownUser" data-bs-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false">
                         <div class="avatar avatar-md avatar-indicators avatar-online">
-                            <img alt="" src='https://gcdnb.pbrd.co/images/noObK2BuNYbj.jpg?o=1'
-                                 class="rounded-circle" />
+{{--                            @if(Auth::check())--}}
+{{--                                @if(Auth::user()->hasRole('teacher'))--}}
+{{--                                    <img alt="" src='https://gcdnb.pbrd.co/images/noObK2BuNYbj.jpg?o=1'--}}
+{{--                                         class="rounded-circle" height="60px" width="60px"/>--}}
+{{--                                @elseif(Auth::user()->hasRole('student'))--}}
+{{--                                    <img alt="" src='https://gcdnb.pbrd.co/images/noObK2BuNYbj.png?o=1'--}}
+{{--                                         class="rounded-circle" height="60px" width="60px"/>--}}
+{{--                                @elseif(Auth::user()->hasRole('admin'))--}}
+{{--                                    <img alt="" src='https://gcdnb.pbrd.co/images/noObK2BuNYbj.jpg?o=1'--}}
+{{--                                         class="rounded-circle" height="60px" width="60px"/>--}}
+{{--                                @else--}}
+{{--                                    <img alt="" src='https://gcdnb.pbrd.co/images/noObK2BuNYbj.png?o=1'--}}
+{{--                                         class="rounded-circle" height="60px" width="60px"/>--}}
+{{--                                @endif--}}
+{{--                            @endif--}}
+                            <img alt="" src='https://i.postimg.cc/HWFZCk8X/307344524-6115994245096713-1424891674421054499-n-copy.jpg'
+                                 class="rounded-circle" height="60px" width="60px"/>
                         </div>
                     </a>
                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownUser">
@@ -36,7 +51,7 @@
                                 </form>
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">
-                                    <i class="me-2 icon-xxs dropdown-item-icon fa fa-sign-out-alt"></i>Sign Out
+                                    <i class="me-2 icon-xxs dropdown-item-icon fa fa-sign-out-alt"></i>Đăng Xuất
                                 </a>
                             </li>
                         </ul>

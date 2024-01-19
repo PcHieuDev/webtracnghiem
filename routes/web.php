@@ -35,12 +35,20 @@ Route::middleware(['auth', 'isTeacher'])->group(function () {
 
 });
 
+Route::middleware(['auth', 'isStudent'])->group(function () {
+    Route::get('/dashboard', App\Http\Livewire\Dashboard::class)->name('dashboard');
+    Route::view('/student/profile', 'student.profile');
+    Route::post('/student/profile', [App\Http\Controllers\StudentController::class, 'profileUpdate']);
+});
+
 //frontend
 Route::get('/', App\Http\Livewire\Home::class);
 Route::get('/classroom/list', App\Http\Livewire\ClassroomList::class)->name('classroom.list')->middleware('auth');
 Route::get('/classroom/{classroom_id}', App\Http\Livewire\Classroom::class)->name('classroom.show')->middleware('auth');
 Route::get('/classroom/{quiz_id}/quiz', App\Http\Livewire\QuizList::class)->name('classroom.quiz')->middleware('auth');
 Route::post('/classroom/{quiz_id}/quiz', [App\Http\Livewire\QuizList::class, 'ansStore']);
+
+
 Route::get('logout', function () {
     auth()->logout();
     return redirect('/');
