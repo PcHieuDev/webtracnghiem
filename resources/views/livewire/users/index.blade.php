@@ -34,7 +34,7 @@
                                     <th>#</th>
                                     <th>Tên</th>
                                     <th>Email</th>
-{{--                                    <th>Image</th>--}}
+                                    <th>Image</th>
                                     <th>Vai Trò</th>
                                     <td>Hành Động</td>
                                 </tr>
@@ -45,10 +45,10 @@
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $row->name }}</td>
                                         <td>{{ $row->email }}</td>
-{{--                                        <td>--}}
-{{--                                            <img src="{{ Storage::url($row->image) }}" class="img-thumbnail"--}}
-{{--                                                alt="image" height="100px" width="70px">--}}
-{{--                                        </td>--}}
+                                        <td>
+                                            <img src="{{ Storage::url($row->image) }}" class="img-thumbnail"
+                                                alt="image" height="100px" width="70px">
+                                        </td>
                                         <td>
                                             @if (!empty($row->getRoleNames()))
                                                 @foreach ($row->getRoleNames() as $val)

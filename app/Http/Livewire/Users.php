@@ -50,7 +50,7 @@ class Users extends Component
         $this->password = null;
         $this->password_confirmation = null;
         $this->roles = null;
-//        $this->image = null;
+        $this->image = null;
     }
 
     public function store()
@@ -62,7 +62,7 @@ class Users extends Component
             'email' => 'required|email|unique:users,email',
             'password' => 'required|confirmed',
             'selected_roles' => 'required',
-//            'image' => 'nullable|image|max:2048', // 1MB Max
+            'image' => 'nullable|image|max:2048', // 1MB Max
         ]);
 
         $image = '';
@@ -74,7 +74,7 @@ class Users extends Component
         $user = User::create([
             'name' => $this->name,
             'email' => $this->email,
-//            'image' => $image,
+            'image' => $image,
             'password' => bcrypt($this->password),
         ]);
         $user->assignRole($this->selected_roles);
@@ -91,7 +91,7 @@ class Users extends Component
         $this->selected_id = $id;
         $this->name = $record->name;
         $this->email = $record->email;
-//        $this->image = $record->image;
+        $this->image = $record->image;
 
         $this->selected_roles = $record->roles->pluck('name', 'name')->all();
     }
@@ -102,7 +102,7 @@ class Users extends Component
         $this->selected_id = $id;
         $this->name = $record->name;
         $this->email = $record->email;
-//        $this->image = $record->image;
+        $this->image = $record->image;
 
     }
 
@@ -115,15 +115,15 @@ class Users extends Component
             'email' => 'required|email|unique:users,email,' . $this->selected_id,
             'password' => 'confirmed',
             'roles' => 'required',
-//            'image' => 'nullable|image|max:2048', // 1MB Max
+            'image' => 'nullable|image|max:2048', // 1MB Max
 
         ]);
 
-//        $image = '';
-//
-//        if ($this->image) {
-//            $image = $this->image->store('uploads', 'public');
-//        }
+        $image = '';
+
+        if ($this->image) {
+            $image = $this->image->store('uploads', 'public');
+        }
 
 
         if ($this->selected_id) {
@@ -132,7 +132,7 @@ class Users extends Component
             $record->update([
                 'name' => $this->name,
                 'email' => $this->email,
-//                'image' => $image,
+                'image' => $image,
                 'password' => bcrypt($this->password),
             ]);
             DB::table('model_has_roles')

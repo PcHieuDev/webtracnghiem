@@ -21,12 +21,12 @@
                             placeholder="Email">@error('email') <span
                             class="error text-danger">{{ $message }}</span> @enderror
                     </div>
-{{--                    <div class="form-group">--}}
-{{--                        <label for="image"></label>--}}
-{{--                        <input wire:model="image" type="file" class="form-control" id="image"--}}
-{{--                            placeholder="Image">@error('image') <span--}}
-{{--                            class="error text-danger">{{ $message }}</span> @enderror--}}
-{{--                    </div>--}}
+                    <div class="form-group">
+                        <label for="image"></label>
+                        <input wire:model="image" type="file" class="form-control" id="image"
+                            placeholder="Image">@error('image') <span
+                            class="error text-danger">{{ $message }}</span> @enderror
+                    </div>
                     <div class="form-group">
                         <strong>Vai Trò:</strong>
                         <br />
